@@ -1,0 +1,2309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#eef5fe">
+<title>English for Secretaries — Reading Comprehension Practice</title>
+<style>
+:root{
+  --bg:#f3f8fd;
+  --surface:#ffffff;
+  --primary:#4a7fd4;
+  --primary-dark:#1f3b63;
+  --primary-soft:#dce9fa;
+  --primary-lighter:#eef5fe;
+  --text:#23384f;
+  --muted:#6b7f96;
+  --border:#dce7f4;
+  --green:#2f9e6e;
+  --green-soft:#e4f7ed;
+  --red:#d05252;
+  --red-soft:#fdecec;
+  --amber:#c1871a;
+  --amber-soft:#fdf4e3;
+  --radius:14px;
+  --radius-sm:10px;
+  --shadow:0 2px 10px rgba(31,59,99,.07);
+  --shadow-lg:0 10px 34px rgba(31,59,99,.14);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-text-size-adjust:100%;
+  -webkit-tap-highlight-color:transparent;
+}
+h1,h2,h3,h4{margin:0;font-weight:700;color:var(--primary-dark);line-height:1.35;}
+p{margin:0;}
+button{font-family:inherit;font-size:inherit;cursor:pointer;}
+.hidden{display:none !important;}
+
+/* ---------- Top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:10px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;}
+.brand-icon{
+  width:42px;height:42px;border-radius:12px;background:var(--primary-soft);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+}
+.brand-icon svg{width:22px;height:22px;stroke:var(--primary);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.brand h1{font-size:1.06rem;letter-spacing:-.2px;}
+.brand p{font-size:.78rem;color:var(--muted);margin-top:1px;}
+.topnav{display:flex;gap:8px;flex-wrap:wrap;}
+.nav-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:transparent;border:1px solid var(--border);color:var(--primary-dark);
+  padding:9px 14px;border-radius:10px;font-size:.86rem;font-weight:600;
+  min-height:42px;transition:background .15s,border-color .15s;
+}
+.nav-btn:hover{background:var(--primary-lighter);border-color:var(--primary-soft);}
+.nav-btn.active{background:var(--primary-soft);border-color:var(--primary-soft);color:#1b4a8f;}
+.nav-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.badge{
+  background:var(--red);color:#fff;font-size:.68rem;font-weight:700;
+  min-width:19px;height:19px;border-radius:10px;display:inline-flex;
+  align-items:center;justify-content:center;padding:0 5px;
+}
+.badge.zero{background:#c3d2e2;color:#5b7characters;}
+.badge.zero{background:#cbd8e6;color:#5a7290;}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:22px 18px 70px;}
+.view{animation:fade .18s ease-out;}
+@keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  border-radius:10px;border:1px solid transparent;
+  padding:10px 16px;font-size:.88rem;font-weight:600;min-height:44px;
+  transition:background .15s,border-color .15s,color .15s,box-shadow .15s;
+  text-align:center;
+}
+.btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 2px 8px rgba(74,127,212,.3);}
+.btn-primary:hover{background:#3f6fc0;}
+.btn-outline{background:#fff;border-color:var(--border);color:var(--primary-dark);}
+.btn-outline:hover{background:var(--primary-lighter);border-color:var(--primary-soft);}
+.btn-ghost{background:transparent;color:var(--muted);border-color:transparent;}
+.btn-ghost:hover{background:var(--primary-lighter);color:var(--primary-dark);}
+.btn-danger{background:#fff;border-color:#f0cdcd;color:var(--red);}
+.btn-danger:hover{background:var(--red-soft);}
+.btn:disabled{opacity:.45;cursor:not-allowed;}
+.btn-mini{padding:6px 11px;font-size:.78rem;min-height:34px;border-radius:8px;}
+
+/* ---------- Dashboard ---------- */
+.page-head{margin-bottom:20px;}
+.page-head h2{font-size:1.35rem;letter-spacing:-.3px;}
+.page-head p{color:var(--muted);font-size:.9rem;margin-top:4px;}
+
+.stats-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;margin-bottom:18px;
+}
+.stat-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px 16px;box-shadow:var(--shadow);
+}
+.stat-label{display:block;font-size:.73rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700;}
+.stat-value{display:block;font-size:1.55rem;font-weight:800;color:var(--primary-dark);line-height:1.25;margin-top:3px;}
+.stat-value small{font-size:.9rem;font-weight:600;color:var(--muted);}
+.stat-card.accent{background:linear-gradient(135deg,#eaf2fd,#f7fbff);}
+
+.progress-card{padding:16px 18px;margin-bottom:22px;}
+.progress-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+.progress-top span{font-size:.86rem;font-weight:700;color:var(--primary-dark);}
+.progress-top em{font-style:normal;font-size:.82rem;color:var(--muted);font-weight:600;}
+.bar{height:10px;border-radius:6px;background:#e6eefa;overflow:hidden;}
+.bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,#7fb0e8,#4a7fd4);transition:width .35s ease;}
+
+.toolbar{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  margin-bottom:18px;
+}
+.filters{display:flex;gap:6px;background:#e9f1fb;padding:5px;border-radius:12px;flex-wrap:wrap;}
+.filter-btn{
+  border:none;background:transparent;color:#4b6b8f;font-weight:600;font-size:.82rem;
+  padding:8px 14px;border-radius:9px;min-height:38px;
+}
+.filter-btn.active{background:#fff;color:var(--primary-dark);box-shadow:0 1px 4px rgba(31,59,99,.12);}
+.spacer{flex:1;}
+
+.units-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;}
+.unit-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:9px;
+  transition:box-shadow .18s,transform .18s;
+}
+.unit-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);}
+.unit-card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.unit-badge{
+  background:var(--primary-soft);color:#1b4a8f;font-size:.72rem;font-weight:800;
+  letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:7px;
+}
+.status-pill{font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.4px;}
+.status-pill.not-started{background:#eef1f5;color:#7b8ea3;}
+.status-pill.in-progress{background:var(--amber-soft);color:var(--amber);}
+.status-pill.completed{background:var(--green-soft);color:var(--green);}
+.unit-card h3{font-size:1.05rem;}
+.unit-vi{font-size:.83rem;color:var(--muted);margin-top:-6px;}
+.unit-passage{
+  font-size:.87rem;color:#3d5a80;font-style:italic;
+  background:var(--primary-lighter);border-radius:8px;padding:8px 11px;
+}
+.unit-meta{display:flex;gap:8px;font-size:.79rem;color:var(--muted);font-weight:600;flex-wrap:wrap;}
+.unit-actions{display:flex;gap:8px;margin-top:auto;padding-top:6px;flex-wrap:wrap;}
+.unit-actions .btn{flex:1;min-width:120px;}
+
+/* ---------- Reading view ---------- */
+.reading-toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.reading-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.reading-card{padding:24px 26px;margin-bottom:18px;}
+.passage-head{border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:16px;}
+.passage-title{font-size:1.24rem;letter-spacing:-.2px;}
+.passage-by{font-size:.84rem;color:var(--muted);margin-top:4px;font-style:italic;}
+.para{margin:0 0 15px;line-height:1.75;}
+.para:last-child{margin-bottom:0;}
+.para.vi{
+  color:#3b5b83;background:var(--primary-lighter);border-left:3px solid var(--primary);
+  padding:11px 15px;border-radius:0 9px 9px 0;font-size:.93rem;margin-bottom:18px;
+}
+.passage-list{margin:0 0 15px;padding-left:22px;}
+.passage-list li{margin-bottom:7px;line-height:1.7;}
+.passage-list.vi{
+  color:#3b5b83;background:var(--primary-lighter);border-left:3px solid var(--primary);
+  padding:12px 15px 12px 34px;border-radius:0 9px 9px 0;font-size:.93rem;margin-bottom:18px;
+}
+
+.vocab-card{padding:20px 22px;}
+.vocab-card h3{font-size:1.02rem;margin-bottom:12px;}
+.vocab-item{border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:8px;overflow:hidden;background:#fcfdff;}
+.vocab-main{
+  display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;flex-wrap:wrap;
+}
+.vocab-word{font-weight:700;color:var(--primary-dark);}
+.vocab-pos{font-size:.72rem;background:var(--primary-soft);color:#1b4a8f;padding:2px 8px;border-radius:6px;font-weight:700;text-transform:lowercase;}
+.vocab-ipa{font-size:.83rem;color:var(--muted);font-family:"Segoe UI",Arial,sans-serif;}
+.vocab-toggle{margin-left:auto;font-weight:800;color:var(--primary);font-size:1.1rem;line-height:1;width:22px;text-align:center;}
+.vocab-detail{padding:0 14px 13px;font-size:.88rem;color:#3d5a80;border-top:1px dashed var(--border);padding-top:11px;}
+.vocab-detail p{margin-bottom:6px;}
+.vocab-detail p:last-child{margin-bottom:0;}
+
+/* ---------- Practice view ---------- */
+.practice-bar{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  flex-wrap:wrap;margin-bottom:10px;
+}
+.practice-bar-left{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.practice-unit{font-weight:700;color:var(--primary-dark);font-size:.9rem;}
+.practice-counter{font-size:.86rem;color:var(--muted);font-weight:700;}
+.progress-line{height:6px;background:#e3edf9;border-radius:5px;overflow:hidden;margin-bottom:18px;}
+.progress-line-fill{height:100%;background:linear-gradient(90deg,#8fbcec,#4a7fd4);width:0;transition:width .3s;}
+
+.practice-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;}
+.practice-passage{padding:18px 20px;max-height:calc(100vh - 210px);overflow:auto;}
+.card-head-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;}
+.card-head-row h3{font-size:.95rem;}
+.practice-question{padding:20px 22px;}
+
+.q-type-badge{
+  display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
+  background:var(--primary-lighter);color:#3f6fc0;padding:3px 9px;border-radius:6px;margin-bottom:11px;
+}
+.q-prompt{font-size:1.02rem;font-weight:600;color:var(--primary-dark);line-height:1.55;margin-bottom:6px;}
+.q-prompt-vi{font-size:.87rem;color:var(--muted);margin-bottom:16px;font-style:italic;}
+
+.option{
+  display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;
+  background:#fff;border:1.5px solid var(--border);border-radius:11px;
+  padding:13px 15px;margin-bottom:9px;transition:border-color .15s,background .15s;
+  min-height:48px;
+}
+.option:hover{border-color:#b9d2f0;background:#fafdff;}
+.option.selected{border-color:var(--primary);background:var(--primary-lighter);}
+.option-key{
+  flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:#eef3fa;color:#54739a;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;margin-top:1px;
+}
+.option.selected .option-key{background:var(--primary);color:#fff;}
+.option-text{font-size:.94rem;line-height:1.5;color:var(--text);}
+.option-vi{display:block;font-size:.82rem;color:var(--muted);margin-top:3px;font-style:italic;}
+
+.tf-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.tf-row .option{margin-bottom:0;justify-content:center;align-items:center;}
+.tf-row .option .option-text{font-weight:700;font-size:1rem;}
+
+.fill-prompt{font-size:1rem;line-height:2.1;}
+.fill-input{
+  font-family:inherit;font-size:.98rem;font-weight:700;color:var(--primary-dark);
+  border:none;border-bottom:2px solid var(--primary);background:var(--primary-lighter);
+  padding:5px 10px;border-radius:7px 7px 0 0;min-width:170px;outline:none;
+}
+.fill-input:focus{background:#e3effc;}
+
+.word-bank{
+  background:var(--amber-soft);border:1px dashed #e6cd9a;border-radius:10px;
+  padding:11px 14px;margin-bottom:14px;
+}
+.word-bank span{display:block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--amber);margin-bottom:5px;}
+.word-bank p{font-size:.92rem;font-weight:600;color:#6b5313;}
+
+.practice-nav{display:flex;gap:9px;margin-top:18px;flex-wrap:wrap;}
+.practice-nav .btn{flex:1;min-width:110px;}
+
+.qdots{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);}
+.qdot{
+  width:32px;height:32px;border-radius:9px;border:1.5px solid var(--border);background:#fff;
+  font-size:.78rem;font-weight:700;color:var(--muted);
+}
+.qdot.answered{background:var(--primary-soft);border-color:var(--primary-soft);color:#1b4a8f;}
+.qdot.current{border-color:var(--primary);color:var(--primary-dark);box-shadow:0 0 0 3px rgba(74,127,212,.14);}
+
+/* ---------- Result / Review ---------- */
+.result-summary{
+  background:linear-gradient(135deg,#eaf3fe,#f9fcff);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;text-align:center;margin-bottom:20px;box-shadow:var(--shadow);
+}
+.score-ring{
+  width:120px;height:120px;border-radius:50%;margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;
+  background:conic-gradient(var(--primary) var(--pct,0%), #e2ecf8 0);
+  position:relative;
+}
+.score-ring::after{
+  content:"";position:absolute;inset:11px;background:#fff;border-radius:50%;
+}
+.score-ring span{position:relative;z-index:1;font-size:1.7rem;font-weight:800;color:var(--primary-dark);}
+.result-summary h2{font-size:1.25rem;margin-bottom:5px;}
+.result-summary p{color:var(--muted);font-size:.9rem;}
+.result-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.chip{
+  padding:8px 16px;border-radius:20px;font-size:.85rem;font-weight:700;
+  background:#fff;border:1px solid var(--border);
+}
+.chip.green{background:var(--green-soft);border-color:#c4ead6;color:var(--green);}
+.chip.red{background:var(--red-soft);border-color:#f3cfcf;color:var(--red);}
+
+.result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;justify-content:center;}
+.result-actions .btn{min-width:170px;}
+
+.fb-card{
+  border:1px solid var(--border);border-radius:var(--radius);background:#fff;
+  padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow);
+  border-left:5px solid var(--border);
+}
+.fb-card.correct{border-left-color:var(--green);}
+.fb-card.incorrect{border-left-color:var(--red);}
+.fb-head{display:flex;align-items:center;gap:10px;margin-bottom:11px;flex-wrap:wrap;}
+.fb-num{
+  width:28px;height:28px;border-radius:9px;background:#eef3fa;color:#54739a;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;flex:0 0 auto;
+}
+.fb-card.correct .fb-num{background:var(--green-soft);color:var(--green);}
+.fb-card.incorrect .fb-num{background:var(--red-soft);color:var(--red);}
+.fb-unit{font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+.fb-status{margin-left:auto;font-size:.75rem;font-weight:800;padding:4px 11px;border-radius:20px;text-transform:uppercase;letter-spacing:.4px;}
+.fb-status.ok{background:var(--green-soft);color:var(--green);}
+.fb-status.no{background:var(--red-soft);color:var(--red);}
+.fb-prompt{font-weight:600;color:var(--primary-dark);margin-bottom:4px;line-height:1.55;}
+.fb-prompt-vi{font-size:.86rem;color:var(--muted);font-style:italic;margin-bottom:12px;}
+.fb-opt{
+  display:flex;gap:11px;align-items:flex-start;padding:10px 13px;border-radius:9px;
+  border:1.5px solid var(--border);margin-bottom:7px;font-size:.92rem;
+}
+.fb-opt.correct-opt{background:var(--green-soft);border-color:#bfe7d1;}
+.fb-opt.wrong-opt{background:var(--red-soft);border-color:#f0cbcb;}
+.fb-opt .option-key{width:24px;height:24px;font-size:.75rem;}
+.fb-opt.correct-opt .option-key{background:var(--green);color:#fff;}
+.fb-opt.wrong-opt .option-key{background:var(--red);color:#fff;}
+.fb-opt .option-vi{font-size:.8rem;}
+.fb-answer-line{font-size:.92rem;margin-bottom:6px;color:#3d5a80;}
+.fb-answer-line strong{color:var(--primary-dark);}
+.fb-answer-line .ok{color:var(--green);font-weight:700;}
+.fb-answer-line .no{color:var(--red);font-weight:700;}
+.fb-explain{
+  background:var(--primary-lighter);border-left:3px solid var(--primary);
+  border-radius:0 8px 8px 0;padding:11px 14px;font-size:.89rem;color:#3b5b83;margin-top:11px;
+}
+.fb-explain strong{color:var(--primary-dark);}
+
+/* ---------- Mistakes view ---------- */
+.mistake-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
+.reviewed-tag{
+  font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.4px;
+  background:var(--green-soft);color:var(--green);padding:4px 10px;border-radius:20px;
+}
+.mark-btn{margin-left:auto;}
+.empty-state{
+  text-align:center;padding:50px 20px;color:var(--muted);
+  background:#fff;border:1px dashed var(--border);border-radius:var(--radius);
+}
+.empty-state svg{width:44px;height:44px;stroke:#b9cee6;fill:none;stroke-width:1.6;margin-bottom:12px;}
+.empty-state h3{font-size:1.05rem;margin-bottom:6px;}
+.empty-state p{font-size:.88rem;}
+
+/* ---------- Modal ---------- */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(24,44,70,.45);z-index:200;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.modal-box{
+  background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-lg);
+  max-width:440px;width:100%;padding:24px;
+}
+.modal-box h3{font-size:1.08rem;margin-bottom:9px;}
+.modal-box p{font-size:.9rem;color:#4b6584;line-height:1.6;}
+.modal-actions{display:flex;gap:10px;margin-top:20px;justify-content:flex-end;flex-wrap:wrap;}
+.modal-actions .btn{min-width:110px;}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  .practice-grid{grid-template-columns:1fr;}
+  .practice-passage{max-height:none;}
+}
+@media (max-width:640px){
+  .wrap{padding:16px 13px 60px;}
+  .topbar-inner{padding:9px 13px;}
+  .brand h1{font-size:.98rem;}
+  .brand p{font-size:.73rem;}
+  .brand-icon{width:36px;height:36px;}
+  .nav-btn{padding:8px 11px;font-size:.8rem;min-height:40px;}
+  .units-grid{grid-template-columns:1fr;}
+  .reading-card{padding:18px 16px;}
+  .practice-question{padding:16px 15px;}
+  .practice-passage{padding:15px 16px;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:9px;}
+  .stat-value{font-size:1.3rem;}
+  .stat-card{padding:11px 13px;}
+  .tf-row{grid-template-columns:1fr 1fr;}
+  .result-actions .btn{min-width:100%;}
+  .unit-actions .btn{min-width:100%;}
+  .fill-input{min-width:130px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 19.5V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v13.5"/><path d="M4 19.5A1.5 1.5 0 0 1 5.5 18H19"/><path d="M8 7h7"/><path d="M8 11h7"/></svg>
+      </div>
+      <div>
+        <h1>English for Secretaries</h1>
+        <p>Reading Comprehension Practice</p>
+      </div>
+    </div>
+    <nav class="topnav">
+      <button class="nav-btn active" id="navDashboard" data-nav="dashboard">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Dashboard
+      </button>
+      <button class="nav-btn" id="navMistakes" data-nav="mistakes">
+        <svg viewBox="0 0 24 24"><path d="M12 8v5"/><path d="M12 16.5h.01"/><circle cx="12" cy="12" r="9"/></svg>
+        Review Mistakes
+        <span class="badge zero" id="navMistakeCount">0</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ DASHBOARD ============ -->
+  <section id="view-dashboard" class="view">
+    <div class="page-head">
+      <h2>Learning Dashboard</h2>
+      <p>Theo dõi tiến độ luyện đọc hiểu của bạn qua 7 unit của môn English for Secretaries.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card accent">
+        <span class="stat-label">Total Units</span>
+        <span class="stat-value" id="statUnits">7</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Reading Passages</span>
+        <span class="stat-value" id="statPassages">7</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Total Questions</span>
+        <span class="stat-value" id="statQuestions">23</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Questions Answered</span>
+        <span class="stat-value" id="statAnswered">0 <small>/ 23</small></span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Accuracy</span>
+        <span class="stat-value" id="statAccuracy">0%</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">To Review</span>
+        <span class="stat-value" id="statReview">0</span>
+      </div>
+    </div>
+
+    <div class="card progress-card">
+      <div class="progress-top">
+        <span>Overall Progress</span>
+        <em id="progressText">0 of 23 questions completed</em>
+      </div>
+      <div class="bar"><div class="bar-fill" id="overallProgress" style="width:0%"></div></div>
+    </div>
+
+    <div class="toolbar">
+      <div class="filters" id="filterBar">
+        <button class="filter-btn active" data-filter="all">All Units</button>
+        <button class="filter-btn" data-filter="not-started">Not Started</button>
+        <button class="filter-btn" data-filter="in-progress">In Progress</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+      <div class="spacer"></div>
+      <button class="btn btn-outline" id="btnContinueLearning">
+        <svg viewBox="0 0 24 24"><path d="M5 12h13"/><path d="m13 6 6 6-6 6"/></svg>
+        Continue Learning
+      </button>
+      <button class="btn btn-outline" id="btnReviewMistakesTop">
+        <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+        Review Mistakes
+      </button>
+      <button class="btn btn-danger" id="btnResetProgress">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M6 7l1 12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-12"/></svg>
+        Reset Progress
+      </button>
+    </div>
+
+    <div class="units-grid" id="unitsGrid"></div>
+  </section>
+
+  <!-- ============ READING ============ -->
+  <section id="view-reading" class="view hidden">
+    <div class="reading-toolbar">
+      <button class="btn btn-ghost" id="btnBackFromReading">
+        <svg viewBox="0 0 24 24"><path d="M19 12H6"/><path d="m11 18-6-6 6-6"/></svg>
+        Back to Dashboard
+      </button>
+      <div class="reading-actions">
+        <button class="btn btn-outline" id="btnToggleTranslation">Show Vietnamese Translation</button>
+        <button class="btn btn-primary" id="btnStartExercise">
+          <svg viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></svg>
+          Start Exercise
+        </button>
+      </div>
+    </div>
+    <div class="card reading-card">
+      <div id="readingPassage"></div>
+    </div>
+    <div class="card vocab-card">
+      <h3>Vocabulary — Từ vựng trọng tâm</h3>
+      <div id="vocabList"></div>
+    </div>
+  </section>
+
+  <!-- ============ PRACTICE ============ -->
+  <section id="view-practice" class="view hidden">
+    <div class="practice-bar">
+      <div class="practice-bar-left">
+        <button class="btn btn-ghost" id="btnExitPractice">
+          <svg viewBox="0 0 24 24"><path d="M19 12H6"/><path d="m11 18-6-6 6-6"/></svg>
+          Exit
+        </button>
+        <span class="practice-unit" id="practiceUnitLabel"></span>
+      </div>
+      <span class="practice-counter" id="practiceQCounter">Question 1 of 3</span>
+    </div>
+    <div class="progress-line"><div class="progress-line-fill" id="practiceProgress"></div></div>
+
+    <div class="practice-grid">
+      <div class="card practice-passage">
+        <div class="card-head-row">
+          <h3>Reading Passage</h3>
+          <button class="btn btn-outline btn-mini" id="btnTogglePassage">Hide</button>
+        </div>
+        <div id="practicePassageBody"></div>
+      </div>
+      <div class="card practice-question">
+        <div id="questionArea"></div>
+        <div class="practice-nav">
+          <button class="btn btn-outline" id="btnPrev">Previous</button>
+          <button class="btn btn-outline" id="btnNext">Next</button>
+          <button class="btn btn-primary" id="btnSubmit">Submit Answers</button>
+        </div>
+        <div class="qdots" id="qDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULT / REVIEW ============ -->
+  <section id="view-result" class="view hidden">
+    <div class="result-summary" id="resultSummary"></div>
+    <div class="result-actions" id="resultActions"></div>
+    <div id="resultList"></div>
+  </section>
+
+  <!-- ============ MISTAKES ============ -->
+  <section id="view-mistakes" class="view hidden">
+    <div class="page-head">
+      <h2>Review Mistakes</h2>
+      <p>Những câu bạn đã trả lời sai. Hãy ôn lại và làm lại để xóa khỏi danh sách.</p>
+    </div>
+    <div class="mistake-actions">
+      <button class="btn btn-primary" id="btnRetryMistakes">
+        <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+        Retry Mistakes
+      </button>
+      <button class="btn btn-outline" id="btnClearReviewed">Clear Reviewed Questions</button>
+      <button class="btn btn-ghost" id="btnBackFromMistakes">Back to Dashboard</button>
+    </div>
+    <div id="mistakesList"></div>
+  </section>
+
+</main>
+
+<div class="modal-overlay hidden" id="modalOverlay">
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <h3 id="modalTitle"></h3>
+    <p id="modalMessage"></p>
+    <div class="modal-actions">
+      <button class="btn btn-outline hidden" id="modalCancel">Cancel</button>
+      <button class="btn btn-primary" id="modalOk">OK</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* =========================================================
+   1. DATA — 7 UNITS
+   ========================================================= */
+const BLANK = "__________";
+
+const UNITS = [
+  /* ---------------------------------------------------- UNIT 1 */
+  {
+    id: "unit1",
+    number: 1,
+    name: "Office Supplies",
+    nameVi: "Văn phòng phẩm",
+    passageTitle: "Who’s In Charge of the Supplies?",
+    passageTitleVi: "Ai là người chịu trách nhiệm về văn phòng phẩm?",
+    passageBy: "By Polly Evans",
+    instruction: "Read this article from a business magazine. Then, choose the correct answers.",
+    paragraphs: [
+      {
+        en: "Some businesses let employees order their own supplies. But this is a bad idea.",
+        vi: "Một số doanh nghiệp cho phép nhân viên tự đặt mua văn phòng phẩm. Tuy nhiên, đây là một ý tưởng không tốt."
+      },
+      {
+        en: "Why? After all, employees need pens, tape and folders to do their jobs. But businesses lose money this way. It is better to have one person in charge of purchasing supplies.",
+        vi: "Tại sao? Xét cho cùng, nhân viên cần bút, băng keo và bìa hồ sơ để làm công việc của mình. Nhưng các doanh nghiệp sẽ mất tiền theo cách này. Tốt hơn hết là nên có một người chịu trách nhiệm mua sắm văn phòng phẩm."
+      },
+      {
+        en: "On a set date every month, employees give the person in charge lists of what they need. Then, he or she places an order for staples, paperclips, correction fluid and other necessary items. Everything arrives at the same time. This saves money on shipping charges. Also, many office supply stores give discounts for larger orders.",
+        vi: "Vào một ngày cố định mỗi tháng, nhân viên đưa cho người phụ trách danh sách những thứ họ cần. Sau đó, người này đặt mua ghim bấm, kẹp giấy, dung dịch xóa và những vật dụng cần thiết khác. Tất cả hàng hóa được giao đến cùng một lúc. Điều này giúp tiết kiệm chi phí vận chuyển. Ngoài ra, nhiều cửa hàng văn phòng phẩm còn giảm giá cho những đơn hàng lớn."
+      }
+    ],
+    vocabulary: [
+      { word: "supplies", pos: "noun", ipa: "/səˈplaɪz/", meaning: "văn phòng phẩm, vật dụng được cung cấp", example: "Some businesses let employees order their own supplies." },
+      { word: "in charge of", pos: "phrase", ipa: "/ɪn ˈtʃɑːdʒ əv/", meaning: "chịu trách nhiệm về", example: "It is better to have one person in charge of purchasing supplies." },
+      { word: "purchasing", pos: "noun", ipa: "/ˈpɜːtʃəsɪŋ/", meaning: "việc mua sắm, thu mua", example: "one person in charge of purchasing supplies" },
+      { word: "place an order", pos: "phrase", ipa: "/pleɪs ən ˈɔːdə/", meaning: "đặt hàng", example: "he or she places an order for staples, paperclips, correction fluid" },
+      { word: "staples", pos: "noun", ipa: "/ˈsteɪplz/", meaning: "ghim bấm", example: "places an order for staples, paperclips, correction fluid" },
+      { word: "paperclips", pos: "noun", ipa: "/ˈpeɪpəklɪps/", meaning: "kẹp giấy", example: "an order for staples, paperclips, correction fluid" },
+      { word: "correction fluid", pos: "noun", ipa: "/kəˈrekʃn ˈfluːɪd/", meaning: "dung dịch xóa (bút xóa nước)", example: "an order for staples, paperclips, correction fluid" },
+      { word: "shipping charges", pos: "noun", ipa: "/ˈʃɪpɪŋ ˈtʃɑːdʒɪz/", meaning: "phí vận chuyển", example: "This saves money on shipping charges." },
+      { word: "discount", pos: "noun", ipa: "/ˈdɪskaʊnt/", meaning: "khoản giảm giá, chiết khấu", example: "many office supply stores give discounts for larger orders" },
+      { word: "necessary items", pos: "noun", ipa: "/ˈnesəsəri ˈaɪtəmz/", meaning: "những vật dụng cần thiết", example: "correction fluid and other necessary items" }
+    ],
+    questions: [
+      {
+        id: "u1q1", type: "mcq",
+        prompt: "What is the article mostly about?",
+        promptVi: "Bài viết chủ yếu nói về điều gì?",
+        options: [
+          { text: "Where to order office supplies.", textVi: "Nơi đặt mua văn phòng phẩm." },
+          { text: "What supplies a business needs.", textVi: "Những vật dụng mà một doanh nghiệp cần." },
+          { text: "A good method for ordering supplies.", textVi: "Một phương pháp tốt để đặt mua văn phòng phẩm." },
+          { text: "Why supply stores can give discounts.", textVi: "Tại sao các cửa hàng văn phòng phẩm có thể giảm giá." }
+        ],
+        answer: 2,
+        explanation: "Bài đọc tập trung vào cách doanh nghiệp nên tổ chức việc đặt mua văn phòng phẩm: một người phụ trách sẽ thu thập danh sách nhu cầu từ nhân viên và đặt hàng tập trung mỗi tháng. Vì vậy, đáp án C bao quát nội dung chính của toàn bài."
+      },
+      {
+        id: "u1q2", type: "mcq",
+        prompt: "According to the article, what is true of the best way to order supplies?",
+        promptVi: "Theo bài viết, điều nào đúng về cách đặt mua văn phòng phẩm tốt nhất?",
+        options: [
+          { text: "Employees create lists of supplies once a year.", textVi: "Nhân viên lập danh sách văn phòng phẩm mỗi năm một lần." },
+          { text: "One person is responsible for placing supply orders.", textVi: "Một người chịu trách nhiệm đặt mua văn phòng phẩm." },
+          { text: "Employees contact stores directly to purchase supplies.", textVi: "Nhân viên liên hệ trực tiếp với các cửa hàng để mua văn phòng phẩm." },
+          { text: "Employees should ask the supply store for discounts.", textVi: "Nhân viên nên yêu cầu cửa hàng giảm giá." }
+        ],
+        answer: 1,
+        explanation: "Bài đọc có câu: “It is better to have one person in charge of purchasing supplies.” — Tốt hơn hết là nên có một người chịu trách nhiệm mua sắm văn phòng phẩm. Do đó, đáp án B đúng."
+      },
+      {
+        id: "u1q3", type: "mcq",
+        prompt: "Why is it bad for employees to order their own supplies?",
+        promptVi: "Tại sao việc để nhân viên tự đặt mua văn phòng phẩm lại không tốt?",
+        options: [
+          { text: "It is costly for the employer.", textVi: "Điều đó gây tốn kém cho người sử dụng lao động." },
+          { text: "It results in lost supply lists.", textVi: "Điều đó khiến danh sách văn phòng phẩm bị thất lạc." },
+          { text: "It increases shipping mistakes.", textVi: "Điều đó làm tăng số lượng sai sót trong vận chuyển." },
+          { text: "It takes longer to receive items.", textVi: "Điều đó khiến hàng hóa được giao lâu hơn." }
+        ],
+        answer: 0,
+        explanation: "Bài đọc cho biết: “But businesses lose money this way.” — Nhưng các doanh nghiệp sẽ mất tiền theo cách này. Ngoài ra, việc gom các đơn hàng lại giúp tiết kiệm phí vận chuyển và nhận được chiết khấu khi mua số lượng lớn. Vì vậy, đáp án A đúng."
+      }
+    ]
+  },
+
+  /* ---------------------------------------------------- UNIT 2 */
+  {
+    id: "unit2",
+    number: 2,
+    name: "Office Furniture",
+    nameVi: "Nội thất văn phòng",
+    passageTitle: "Spring into Spring — Spring Sales at Bradley’s!",
+    passageTitleVi: "Chào đón mùa xuân — Chương trình giảm giá mùa xuân tại Bradley’s!",
+    passageBy: "BRADLEY’S SPRING CATALOGUE",
+    instruction: "Read this excerpt from an office furniture retailer’s catalogue. Then, choose the correct answers.",
+    paragraphs: [
+      {
+        en: "Welcome to Bradley’s! Bradley’s is an office furniture retailer based in Chicago. We sell everything that you need for your office, from coat racks to filing cabinets.",
+        vi: "Chào mừng đến với Bradley’s! Bradley’s là một nhà bán lẻ nội thất văn phòng có trụ sở tại Chicago. Chúng tôi bán mọi thứ bạn cần cho văn phòng, từ giá treo áo khoác đến tủ hồ sơ."
+      },
+      {
+        en: "With over 60 years’ experience, we know what you need. Need a new office desk? How about a reception desk? No problem. We have them!",
+        vi: "Với hơn 60 năm kinh nghiệm, chúng tôi biết bạn cần gì. Bạn cần một chiếc bàn làm việc mới? Hay một chiếc bàn tiếp tân? Không vấn đề gì. Chúng tôi có tất cả!"
+      },
+      {
+        en: "We also have a large selection of shelves which come in wood or metal.",
+        vi: "Chúng tôi cũng có nhiều loại kệ với chất liệu gỗ hoặc kim loại."
+      },
+      {
+        en: "Come in and check out our brand new line of office chairs.",
+        vi: "Hãy đến và khám phá dòng ghế văn phòng hoàn toàn mới của chúng tôi."
+      },
+      {
+        en: "Bradley’s offers different furniture styles, from traditional to modern.",
+        vi: "Bradley’s cung cấp nhiều phong cách nội thất khác nhau, từ truyền thống đến hiện đại."
+      },
+      {
+        en: "We also deliver to your home or office, Mondays through Fridays. (Delivery charges do apply.)",
+        vi: "Chúng tôi cũng giao hàng đến nhà hoặc văn phòng của bạn từ thứ Hai đến thứ Sáu. (Có áp dụng phí giao hàng.)"
+      }
+    ],
+    vocabulary: [
+      { word: "retailer", pos: "noun", ipa: "/ˈriːteɪlə/", meaning: "nhà bán lẻ", example: "Bradley’s is an office furniture retailer based in Chicago." },
+      { word: "based in", pos: "phrase", ipa: "/beɪst ɪn/", meaning: "có trụ sở tại", example: "an office furniture retailer based in Chicago" },
+      { word: "coat rack", pos: "noun", ipa: "/ˈkəʊt ræk/", meaning: "giá treo áo khoác", example: "from coat racks to filing cabinets" },
+      { word: "filing cabinet", pos: "noun", ipa: "/ˈfaɪlɪŋ ˈkæbɪnət/", meaning: "tủ hồ sơ", example: "from coat racks to filing cabinets" },
+      { word: "reception desk", pos: "noun", ipa: "/rɪˈsepʃn desk/", meaning: "bàn tiếp tân", example: "How about a reception desk?" },
+      { word: "shelves", pos: "noun", ipa: "/ʃelvz/", meaning: "những chiếc kệ", example: "a large selection of shelves which come in wood or metal" },
+      { word: "brand new line", pos: "phrase", ipa: "/brænd njuː laɪn/", meaning: "dòng sản phẩm hoàn toàn mới", example: "our brand new line of office chairs" },
+      { word: "delivery charges", pos: "noun", ipa: "/dɪˈlɪvəri ˈtʃɑːdʒɪz/", meaning: "phí giao hàng", example: "Delivery charges do apply." }
+    ],
+    questions: [
+      {
+        id: "u2q1", type: "mcq",
+        prompt: "What is the passage mainly about?",
+        promptVi: "Đoạn văn chủ yếu nói về điều gì?",
+        options: [
+          { text: "the kinds of chairs Bradley’s designs", textVi: "các loại ghế mà Bradley’s thiết kế" },
+          { text: "the types of furniture for sale at Bradley’s", textVi: "các loại nội thất được bán tại Bradley’s" },
+          { text: "new furniture retailer in Chicago", textVi: "một nhà bán lẻ nội thất mới ở Chicago" },
+          { text: "the changes in office furniture styles", textVi: "những thay đổi trong phong cách nội thất văn phòng" }
+        ],
+        answer: 1,
+        explanation: "Bài đọc giới thiệu các sản phẩm nội thất mà Bradley’s bán, bao gồm giá treo áo khoác, tủ hồ sơ, bàn làm việc, bàn tiếp tân, kệ và ghế văn phòng. Vì vậy, đáp án B là nội dung bao quát nhất."
+      },
+      {
+        id: "u2q2", type: "mcq",
+        prompt: "What is new at Bradley’s?",
+        promptVi: "Điều gì mới tại Bradley’s?",
+        options: [
+          { text: "the shelves", textVi: "những chiếc kệ" },
+          { text: "office chairs", textVi: "ghế văn phòng" },
+          { text: "metal desks", textVi: "bàn kim loại" },
+          { text: "filing cabinets", textVi: "tủ hồ sơ" }
+        ],
+        answer: 1,
+        explanation: "Bài đọc viết: “Come in and check out our brand new line of office chairs.” — Hãy đến và khám phá dòng ghế văn phòng hoàn toàn mới của chúng tôi. Cụm từ “brand new line” có nghĩa là dòng sản phẩm hoàn toàn mới. Vì vậy, đáp án B đúng."
+      },
+      {
+        id: "u2q3", type: "mcq",
+        prompt: "What is NOT discussed about Bradley’s in the passage?",
+        promptVi: "Điều nào KHÔNG được đề cập về Bradley’s trong đoạn văn?",
+        options: [
+          { text: "what city it is located in", textVi: "thành phố nơi công ty đặt trụ sở" },
+          { text: "the number of years it has been open", textVi: "số năm công ty đã hoạt động" },
+          { text: "the amount of the delivery charge", textVi: "mức phí giao hàng" },
+          { text: "what kind of items it sells", textVi: "những loại sản phẩm công ty bán" }
+        ],
+        answer: 2,
+        explanation: "Bài đọc có đề cập: thành phố Chicago, hơn 60 năm kinh nghiệm, nhiều loại nội thất văn phòng, và có áp dụng phí giao hàng. Tuy nhiên, bài đọc không nêu số tiền cụ thể của phí giao hàng. Vì vậy, đáp án C đúng."
+      }
+    ]
+  },
+
+  /* ---------------------------------------------------- UNIT 3 */
+  {
+    id: "unit3",
+    number: 3,
+    name: "Reference Books",
+    nameVi: "Sách tham khảo",
+    passageTitle: "Dearborn Industries Employee Manual (Page 12) — 2.3 REFERENCE BOOKS",
+    passageTitleVi: "Sổ tay nhân viên Dearborn Industries (Trang 12) — 2.3 SÁCH THAM KHẢO",
+    passageBy: "",
+    instruction: "Read this excerpt from an employee manual. Then, choose the correct answers.",
+    paragraphs: [
+      {
+        en: "Employee reference books are in the second floor library. Want to learn more about your job? The job manuals are on the left side. Interested in learning more about our products? Company catalogues are next to the manuals. Looking for customer details? Phone books and databases are located here, too.",
+        vi: "Sách tham khảo dành cho nhân viên được đặt trong thư viện ở tầng hai. Bạn muốn tìm hiểu thêm về công việc của mình? Các sổ tay hướng dẫn công việc nằm ở phía bên trái. Bạn muốn tìm hiểu thêm về các sản phẩm của công ty? Các danh mục sản phẩm của công ty nằm cạnh những cuốn sổ tay hướng dẫn. Bạn đang tìm thông tin khách hàng? Danh bạ điện thoại và cơ sở dữ liệu cũng được đặt ở đây."
+      },
+      {
+        en: "Use the right side of the library for general information. Dictionaries and thesauruses are there. We have these books in more than one language. They are very helpful when preparing documents for foreign clients. Encyclopedias are also on this side. Planning a business trip? There is a set of world atlases here as well.",
+        vi: "Hãy sử dụng phía bên phải của thư viện để tìm thông tin chung. Từ điển và từ điển đồng nghĩa nằm ở đó. Chúng tôi có những cuốn sách này bằng nhiều ngôn ngữ. Chúng rất hữu ích khi chuẩn bị tài liệu cho khách hàng nước ngoài. Bách khoa toàn thư cũng nằm ở phía này. Bạn đang lên kế hoạch cho một chuyến công tác? Ở đây cũng có một bộ tập bản đồ thế giới."
+      }
+    ],
+    vocabulary: [
+      { word: "reference books", pos: "noun", ipa: "/ˈrefrəns bʊks/", meaning: "sách tham khảo", example: "Employee reference books are in the second floor library." },
+      { word: "manual", pos: "noun", ipa: "/ˈmænjuəl/", meaning: "sổ tay hướng dẫn", example: "The job manuals are on the left side." },
+      { word: "catalogue", pos: "noun", ipa: "/ˈkætəlɒɡ/", meaning: "danh mục sản phẩm", example: "Company catalogues are next to the manuals." },
+      { word: "database", pos: "noun", ipa: "/ˈdeɪtəbeɪs/", meaning: "cơ sở dữ liệu", example: "Phone books and databases are located here, too." },
+      { word: "thesaurus", pos: "noun", ipa: "/θɪˈsɔːrəs/", meaning: "từ điển đồng nghĩa", example: "Dictionaries and thesauruses are there." },
+      { word: "encyclopedia", pos: "noun", ipa: "/ɪnˌsaɪkləˈpiːdiə/", meaning: "bách khoa toàn thư", example: "Encyclopedias are also on this side." },
+      { word: "atlas", pos: "noun", ipa: "/ˈætləs/", meaning: "tập bản đồ", example: "There is a set of world atlases here as well." },
+      { word: "foreign clients", pos: "noun", ipa: "/ˈfɒrən ˈklaɪənts/", meaning: "khách hàng nước ngoài", example: "helpful when preparing documents for foreign clients" }
+    ],
+    questions: [
+      {
+        id: "u3q1", type: "mcq",
+        prompt: "What is this passage about?",
+        promptVi: "Đoạn văn này nói về điều gì?",
+        options: [
+          { text: "the company’s range of products", textVi: "danh mục sản phẩm của công ty" },
+          { text: "the improvements made at the library", textVi: "những cải tiến được thực hiện tại thư viện" },
+          { text: "the reference books available to employees", textVi: "các loại sách tham khảo có sẵn cho nhân viên" },
+          { text: "how to use the company’s database", textVi: "cách sử dụng cơ sở dữ liệu của công ty" }
+        ],
+        answer: 2,
+        explanation: "Đoạn văn giới thiệu các loại tài liệu tham khảo trong thư viện, chẳng hạn như sổ tay hướng dẫn công việc, danh mục sản phẩm, danh bạ điện thoại, cơ sở dữ liệu, từ điển, từ điển đồng nghĩa, bách khoa toàn thư và tập bản đồ. Vì vậy, đáp án C đúng."
+      },
+      {
+        id: "u3q2", type: "mcq",
+        prompt: "What is true about the dictionaries and thesauruses?",
+        promptVi: "Điều nào đúng về từ điển và từ điển đồng nghĩa?",
+        options: [
+          { text: "They are next to the job manuals.", textVi: "Chúng nằm cạnh các sổ tay hướng dẫn công việc." },
+          { text: "They are useful for planning a trip.", textVi: "Chúng hữu ích cho việc lên kế hoạch chuyến đi." },
+          { text: "They are available in several languages.", textVi: "Chúng có sẵn bằng nhiều ngôn ngữ." },
+          { text: "They are kept on the left side of the library.", textVi: "Chúng được đặt ở phía bên trái thư viện." }
+        ],
+        answer: 2,
+        explanation: "Bài đọc có câu: “We have these books in more than one language.” — Chúng tôi có những cuốn sách này bằng nhiều ngôn ngữ. Từ “these books” đề cập đến dictionaries và thesauruses trong câu trước. Vì vậy, đáp án C đúng."
+      },
+      {
+        id: "u3q3", type: "mcq",
+        prompt: "Which book contains lists of products?",
+        promptVi: "Cuốn sách nào chứa danh sách các sản phẩm?",
+        options: [
+          { text: "phone book", textVi: "danh bạ điện thoại" },
+          { text: "encyclopedia", textVi: "bách khoa toàn thư" },
+          { text: "thesaurus", textVi: "từ điển đồng nghĩa" },
+          { text: "catalogue", textVi: "danh mục sản phẩm" }
+        ],
+        answer: 3,
+        explanation: "Bài đọc viết: “Company catalogues are next to the manuals.” — Các danh mục sản phẩm của công ty nằm cạnh những cuốn sổ tay hướng dẫn. Catalogue là tài liệu giới thiệu hoặc liệt kê các sản phẩm của công ty. Vì vậy, đáp án D đúng."
+      }
+    ]
+  },
+
+  /* ---------------------------------------------------- UNIT 6 */
+  {
+    id: "unit6",
+    number: 6,
+    name: "Greeting Visitors",
+    nameVi: "Chào đón khách",
+    passageTitle: "A RECEPTIONIST’S BEST FRIEND — Greeting Visitors",
+    passageTitleVi: "Người bạn tốt nhất của nhân viên lễ tân — Chào đón khách",
+    passageBy: "By Sandra McCarol",
+    instruction: "Read the excerpt from a blog. Then, choose the correct answers.",
+    paragraphs: [
+      {
+        en: "As a receptionist, you create the first impression of your company. So make sure it’s a good one. Follow these tips for greeting visitors:",
+        vi: "Là một nhân viên lễ tân, bạn tạo ra ấn tượng đầu tiên về công ty của mình. Vì vậy, hãy đảm bảo rằng đó là một ấn tượng tốt. Hãy làm theo những lời khuyên sau khi chào đón khách:"
+      },
+      {
+        list: true,
+        en: [
+          "Always greet visitors with a smile. This makes the guests feel welcomed.",
+          "Remember to introduce yourself and explain your title.",
+          "After your introduction, say, “It’s nice to meet you.” or “Pleased to meet you.”",
+          "Make small talk with visitors by asking questions like: “How are you?” or “How was your flight?”",
+          "Sign the guests in and give them visitor’s passes, if needed."
+        ],
+        vi: [
+          "Luôn chào đón khách bằng một nụ cười. Điều này khiến khách cảm thấy được chào đón.",
+          "Hãy nhớ giới thiệu bản thân và giải thích chức danh của bạn.",
+          "Sau khi giới thiệu, hãy nói: “Rất vui được gặp bạn” hoặc “Hân hạnh được gặp bạn”.",
+          "Hãy trò chuyện xã giao với khách bằng cách đặt những câu hỏi như: “Bạn khỏe không?” hoặc “Chuyến bay của bạn thế nào?”",
+          "Hãy đăng ký thông tin của khách và đưa thẻ khách nếu cần."
+        ]
+      },
+      {
+        en: "These tips help you and your company look professional.",
+        vi: "Những lời khuyên này giúp bạn và công ty thể hiện sự chuyên nghiệp."
+      }
+    ],
+    vocabulary: [
+      { word: "receptionist", pos: "noun", ipa: "/rɪˈsepʃənɪst/", meaning: "nhân viên lễ tân", example: "As a receptionist, you create the first impression of your company." },
+      { word: "first impression", pos: "noun", ipa: "/fɜːst ɪmˈpreʃn/", meaning: "ấn tượng đầu tiên", example: "you create the first impression of your company" },
+      { word: "greet", pos: "verb", ipa: "/ɡriːt/", meaning: "chào đón, chào hỏi", example: "Always greet visitors with a smile." },
+      { word: "introduce", pos: "verb", ipa: "/ˌɪntrəˈdjuːs/", meaning: "giới thiệu", example: "Remember to introduce yourself and explain your title." },
+      { word: "title", pos: "noun", ipa: "/ˈtaɪtl/", meaning: "chức danh", example: "introduce yourself and explain your title" },
+      { word: "small talk", pos: "noun", ipa: "/ˈsmɔːl tɔːk/", meaning: "chuyện trò xã giao", example: "Make small talk with visitors by asking questions" },
+      { word: "visitor’s pass", pos: "noun", ipa: "/ˈvɪzɪtəz pɑːs/", meaning: "thẻ khách", example: "give them visitor’s passes, if needed" },
+      { word: "professional", pos: "adjective", ipa: "/prəˈfeʃənl/", meaning: "chuyên nghiệp", example: "These tips help you and your company look professional." }
+    ],
+    questions: [
+      {
+        id: "u6q1", type: "mcq",
+        prompt: "What is the purpose of the blog post?",
+        promptVi: "Mục đích của bài đăng trên blog là gì?",
+        options: [
+          { text: "to tell receptionists how to make new friends", textVi: "hướng dẫn nhân viên lễ tân cách kết bạn mới" },
+          { text: "to teach employees how to sign-in guests", textVi: "dạy nhân viên cách đăng ký thông tin khách" },
+          { text: "to give advice for handling visitors", textVi: "đưa ra lời khuyên về cách tiếp đón khách" },
+          { text: "to provide tips for visitors to offices", textVi: "cung cấp lời khuyên cho khách đến văn phòng" }
+        ],
+        answer: 2,
+        explanation: "Bài viết đưa ra nhiều lời khuyên cho nhân viên lễ tân khi tiếp đón khách, từ việc mỉm cười, giới thiệu bản thân đến đăng ký thông tin khách. Vì vậy, đáp án C đúng."
+      },
+      {
+        id: "u6q2", type: "mcq",
+        prompt: "What is true about receptionists?",
+        promptVi: "Điều nào đúng về nhân viên lễ tân?",
+        options: [
+          { text: "They are the first to see visitors.", textVi: "Họ là những người đầu tiên gặp khách." },
+          { text: "They must carry visitor’s passes.", textVi: "Họ phải mang theo thẻ khách." },
+          { text: "They introduce visitors to other employees.", textVi: "Họ giới thiệu khách với các nhân viên khác." },
+          { text: "They should wait for visitors to make small talk.", textVi: "Họ nên đợi khách bắt đầu trò chuyện xã giao." }
+        ],
+        answer: 0,
+        explanation: "Bài đọc viết: “As a receptionist, you create the first impression of your company.” — Là một nhân viên lễ tân, bạn tạo ra ấn tượng đầu tiên về công ty. Điều này cho thấy nhân viên lễ tân thường là người đầu tiên tiếp xúc với khách đến công ty. Vì vậy, đáp án A phù hợp nhất."
+      },
+      {
+        id: "u6q3", type: "mcq",
+        prompt: "Which of the following is NOT a tip discussed in the blog post?",
+        promptVi: "Điều nào sau đây KHÔNG phải là lời khuyên được đề cập trong bài đăng?",
+        options: [
+          { text: "smile at the visitors when they first arrive", textVi: "mỉm cười với khách khi họ vừa đến" },
+          { text: "tell the visitor your title", textVi: "cho khách biết chức danh của bạn" },
+          { text: "avoid asking visitors questions", textVi: "tránh đặt câu hỏi cho khách" },
+          { text: "help the guest sign in", textVi: "giúp khách đăng ký thông tin" }
+        ],
+        answer: 2,
+        explanation: "Bài đọc khuyên nhân viên lễ tân nên trò chuyện xã giao với khách bằng cách đặt những câu hỏi như “How are you?” hoặc “How was your flight?”. Vì vậy, việc tránh đặt câu hỏi trái ngược với lời khuyên trong bài. Đáp án C đúng."
+      }
+    ]
+  },
+
+  /* ---------------------------------------------------- UNIT 10 */
+  {
+    id: "unit10",
+    number: 10,
+    name: "Qualities of a Good Employee",
+    nameVi: "Phẩm chất của một nhân viên giỏi",
+    passageTitle: "GREENWAY LTD.",
+    passageTitleVi: "CÔNG TY GREENWAY",
+    passageBy: "",
+    instruction: "Read this job advertisement from a newspaper. Then, fill in the blanks using words from the word bank.",
+    instructionVi: "Đọc quảng cáo tuyển dụng này trên báo. Sau đó điền vào chỗ trống bằng các từ trong ngân hàng từ vựng.",
+    wordBank: ["type", "personal assistant", "qualities", "contact", "friendly"],
+    paragraphs: [
+      {
+        en: "Are you hard-working and organized? If so, we have a great job for you! Our law firm is looking for an efficient and reliable personal assistant (PA) to join our team.",
+        vi: "Bạn có chăm chỉ và ngăn nắp không? Nếu có, chúng tôi có một công việc tuyệt vời dành cho bạn! Công ty luật của chúng tôi đang tìm kiếm một trợ lý cá nhân (PA) hiệu quả và đáng tin cậy để gia nhập đội ngũ."
+      },
+      {
+        list: true,
+        intro: { en: "The successful applicant will:", vi: "Ứng viên được tuyển dụng sẽ:" },
+        en: [
+          "be a qualified PA or have two years’ office experience",
+          "have good grammar and spelling",
+          "have a typing speed of at least 50 words per minute",
+          "have a friendly and polite telephone manner",
+          "be familiar with office computer software"
+        ],
+        vi: [
+          "có bằng cấp/chứng chỉ trợ lý cá nhân hoặc có hai năm kinh nghiệm làm việc văn phòng",
+          "có ngữ pháp và chính tả tốt",
+          "có tốc độ đánh máy ít nhất 50 từ mỗi phút",
+          "có phong thái giao tiếp qua điện thoại thân thiện và lịch sự",
+          "quen thuộc với các phần mềm máy tính văn phòng"
+        ]
+      },
+      {
+        en: "To apply, please email Janet Freeman at hr@greenway.com for an application form.",
+        vi: "Để ứng tuyển, vui lòng gửi email cho Janet Freeman tại hr@greenway.com để nhận mẫu đơn ứng tuyển."
+      },
+      {
+        en: "$22,000 yearly | 37 hours per week",
+        vi: "22.000 đô la mỗi năm | 37 giờ mỗi tuần"
+      }
+    ],
+    vocabulary: [
+      { word: "hard-working", pos: "adjective", ipa: "/ˌhɑːdˈwɜːkɪŋ/", meaning: "chăm chỉ", example: "Are you hard-working and organized?" },
+      { word: "organized", pos: "adjective", ipa: "/ˈɔːɡənaɪzd/", meaning: "ngăn nắp, có tổ chức", example: "Are you hard-working and organized?" },
+      { word: "efficient", pos: "adjective", ipa: "/ɪˈfɪʃnt/", meaning: "hiệu quả", example: "looking for an efficient and reliable personal assistant" },
+      { word: "reliable", pos: "adjective", ipa: "/rɪˈlaɪəbl/", meaning: "đáng tin cậy", example: "an efficient and reliable personal assistant (PA)" },
+      { word: "personal assistant", pos: "noun", ipa: "/ˈpɜːsənl əˈsɪstənt/", meaning: "trợ lý cá nhân", example: "looking for an efficient and reliable personal assistant (PA)" },
+      { word: "applicant", pos: "noun", ipa: "/ˈæplɪkənt/", meaning: "ứng viên", example: "The successful applicant will:" },
+      { word: "qualified", pos: "adjective", ipa: "/ˈkwɒlɪfaɪd/", meaning: "có bằng cấp, đủ tiêu chuẩn", example: "be a qualified PA or have two years’ office experience" },
+      { word: "typing speed", pos: "noun", ipa: "/ˈtaɪpɪŋ spiːd/", meaning: "tốc độ đánh máy", example: "have a typing speed of at least 50 words per minute" },
+      { word: "telephone manner", pos: "noun", ipa: "/ˈtelɪfəʊn ˈmænə/", meaning: "phong thái giao tiếp qua điện thoại", example: "have a friendly and polite telephone manner" },
+      { word: "salary", pos: "noun", ipa: "/ˈsæləri/", meaning: "mức lương", example: "information about the salary" }
+    ],
+    questions: [
+      {
+        id: "u10q1", type: "fill",
+        prompt: "This is Green Way Ltd.’s advertisement for a(n) " + BLANK + ".",
+        promptVi: "Đây là quảng cáo của Green Way Ltd. cho vị trí " + BLANK + ".",
+        answers: ["personal assistant", "personal assistant (pa)", "pa"],
+        explanation: "Personal assistant (trợ lý cá nhân) là vị trí mà Green Way Ltd. đang tuyển dụng. Bài đọc viết: “Our law firm is looking for an efficient and reliable personal assistant (PA) to join our team.”"
+      },
+      {
+        id: "u10q2", type: "fill",
+        prompt: "Green Way wants someone with several " + BLANK + ".",
+        promptVi: "Green Way muốn tìm một người có nhiều " + BLANK + ".",
+        answers: ["qualities"],
+        explanation: "Qualities là danh từ số nhiều, nghĩa là “phẩm chất”. Bài đọc đề cập đến nhiều phẩm chất của ứng viên như chăm chỉ, ngăn nắp, hiệu quả và đáng tin cậy."
+      },
+      {
+        id: "u10q3", type: "fill",
+        prompt: "The person needs two years office experience and must able to " + BLANK + " quickly.",
+        promptVi: "Người đó cần hai năm kinh nghiệm làm việc văn phòng và phải có khả năng " + BLANK + " nhanh.",
+        answers: ["type"],
+        explanation: "Sau “be able to” phải dùng động từ nguyên mẫu. Type nghĩa là “đánh máy”. Lưu ý: câu trong đề gốc thiếu “be” trước “able”; cấu trúc đúng là “must be able to type quickly”."
+      },
+      {
+        id: "u10q4", type: "fill",
+        prompt: "The candidate also needs to be " + BLANK + ".",
+        promptVi: "Ứng viên cũng cần " + BLANK + ".",
+        answers: ["friendly"],
+        explanation: "Friendly là tính từ nghĩa là “thân thiện”. Bài đọc yêu cầu ứng viên có phong thái giao tiếp qua điện thoại thân thiện và lịch sự: “have a friendly and polite telephone manner”."
+      },
+      {
+        id: "u10q5", type: "fill",
+        prompt: "The advertisement also gives the company’s " + BLANK + " details and information about the salary.",
+        promptVi: "Quảng cáo cũng cung cấp thông tin " + BLANK + " của công ty và thông tin về mức lương.",
+        answers: ["contact"],
+        explanation: "Contact details là cụm danh từ nghĩa là “thông tin liên hệ”, chẳng hạn như địa chỉ email hoặc số điện thoại. Trong bài có địa chỉ email hr@greenway.com."
+      }
+    ]
+  },
+
+  /* ---------------------------------------------------- UNIT 11 */
+  {
+    id: "unit11",
+    number: 11,
+    name: "Departments",
+    nameVi: "Các phòng ban",
+    passageTitle: "4 Great Reasons to Join Smith-Owen",
+    passageTitleVi: "4 lý do tuyệt vời để gia nhập Smith-Owen",
+    passageBy: "",
+    instruction: "Read this brochure from the Smith-Owen corporation. Then, choose the correct answers.",
+    paragraphs: [
+      {
+        en: "At Smith-Owen, we’re always looking for new talent!",
+        vi: "Tại Smith-Owen, chúng tôi luôn tìm kiếm những nhân tài mới!"
+      },
+      {
+        en: "1 Purchasing — Our purchasing department is an exciting place to work. Our employees search for products in many different countries.",
+        vi: "1. Phòng thu mua — Phòng thu mua của chúng tôi là một nơi làm việc đầy thú vị. Nhân viên của chúng tôi tìm kiếm sản phẩm ở nhiều quốc gia khác nhau."
+      },
+      {
+        en: "2 Marketing — Are you creative? Our marketing department has openings for talented graphic designers and writers.",
+        vi: "2. Phòng tiếp thị — Bạn có sáng tạo không? Phòng tiếp thị của chúng tôi đang có các vị trí tuyển dụng dành cho những nhà thiết kế đồ họa và người viết nội dung tài năng."
+      },
+      {
+        en: "3 Sales — Our sales department needs people with good communication skills. Salespeople talk to clients and show them our great products.",
+        vi: "3. Phòng kinh doanh — Phòng kinh doanh của chúng tôi cần những người có kỹ năng giao tiếp tốt. Nhân viên kinh doanh trò chuyện với khách hàng và giới thiệu cho họ những sản phẩm tuyệt vời của chúng tôi."
+      },
+      {
+        en: "4 Human Resources — Our human resources department is the center of our talented team! It is responsible for hiring employees and employee benefits.",
+        vi: "4. Phòng nhân sự — Phòng nhân sự là trung tâm của đội ngũ nhân tài của chúng tôi! Phòng này chịu trách nhiệm tuyển dụng nhân viên và các chế độ phúc lợi dành cho nhân viên."
+      },
+      {
+        en: "Come join our company!",
+        vi: "Hãy gia nhập công ty chúng tôi!"
+      },
+      {
+        en: "Visit us at our Human Resources department, call 102-554-833, or email hr@smithowen.com to inquire about vacancies.",
+        vi: "Hãy đến phòng Nhân sự, gọi số 102-554-833 hoặc gửi email đến hr@smithowen.com để hỏi về các vị trí tuyển dụng."
+      }
+    ],
+    vocabulary: [
+      { word: "department", pos: "noun", ipa: "/dɪˈpɑːtmənt/", meaning: "phòng ban", example: "Our purchasing department is an exciting place to work." },
+      { word: "talent", pos: "noun", ipa: "/ˈtælənt/", meaning: "nhân tài", example: "we’re always looking for new talent" },
+      { word: "purchasing", pos: "noun", ipa: "/ˈpɜːtʃəsɪŋ/", meaning: "thu mua", example: "Our purchasing department is an exciting place to work." },
+      { word: "marketing", pos: "noun", ipa: "/ˈmɑːkɪtɪŋ/", meaning: "tiếp thị", example: "Our marketing department has openings" },
+      { word: "sales", pos: "noun", ipa: "/seɪlz/", meaning: "kinh doanh, bán hàng", example: "Our sales department needs people with good communication skills." },
+      { word: "human resources", pos: "noun", ipa: "/ˈhjuːmən rɪˈsɔːsɪz/", meaning: "nhân sự", example: "Our human resources department is the center of our talented team!" },
+      { word: "graphic designer", pos: "noun", ipa: "/ˈɡræfɪk dɪˈzaɪnə/", meaning: "nhà thiết kế đồ họa", example: "openings for talented graphic designers and writers" },
+      { word: "communication skills", pos: "noun", ipa: "/kəˌmjuːnɪˈkeɪʃn skɪlz/", meaning: "kỹ năng giao tiếp", example: "needs people with good communication skills" },
+      { word: "employee benefits", pos: "noun", ipa: "/ɪmˈplɔɪiː ˈbenɪfɪts/", meaning: "phúc lợi nhân viên", example: "responsible for hiring employees and employee benefits" },
+      { word: "vacancy", pos: "noun", ipa: "/ˈveɪkənsi/", meaning: "vị trí tuyển dụng", example: "to inquire about vacancies" }
+    ],
+    questions: [
+      {
+        id: "u11q1", type: "mcq",
+        prompt: "What is the brochure mostly about?",
+        promptVi: "Tờ quảng cáo chủ yếu nói về điều gì?",
+        options: [
+          { text: "job opportunities at a company", textVi: "cơ hội việc làm tại một công ty" },
+          { text: "the policies regarding sales", textVi: "các chính sách liên quan đến hoạt động kinh doanh" },
+          { text: "types of products at Smith-Owen", textVi: "các loại sản phẩm tại Smith-Owen" },
+          { text: "the employee benefits", textVi: "các chế độ phúc lợi dành cho nhân viên" }
+        ],
+        answer: 0,
+        explanation: "Bài đọc giới thiệu bốn phòng ban và những vị trí tuyển dụng tại công ty. Nội dung chính là cơ hội việc làm, không chỉ riêng sản phẩm hoặc phúc lợi. Vì vậy, đáp án A đúng."
+      },
+      {
+        id: "u11q2", type: "mcq",
+        prompt: "According to the passage, which skill does a salesperson need?",
+        promptVi: "Theo đoạn văn, nhân viên kinh doanh cần kỹ năng nào?",
+        options: [
+          { text: "design", textVi: "thiết kế" },
+          { text: "writing", textVi: "viết" },
+          { text: "communication", textVi: "giao tiếp" },
+          { text: "recruitment", textVi: "tuyển dụng" }
+        ],
+        answer: 2,
+        explanation: "Bài đọc viết: “Our sales department needs people with good communication skills.” — Phòng kinh doanh cần những người có kỹ năng giao tiếp tốt. Vì vậy, đáp án C đúng."
+      },
+      {
+        id: "u11q3", type: "mcq",
+        prompt: "What is NOT a way to contact the Human Resources department?",
+        promptVi: "Đâu KHÔNG phải là cách liên hệ với phòng Nhân sự?",
+        options: [
+          { text: "by email", textVi: "qua email" },
+          { text: "in person", textVi: "trực tiếp" },
+          { text: "by phone", textVi: "qua điện thoại" },
+          { text: "by mail", textVi: "qua thư bưu điện" }
+        ],
+        answer: 3,
+        explanation: "Bài đọc đưa ra ba cách liên hệ: đến trực tiếp phòng Nhân sự, gọi điện thoại, hoặc gửi email. Không có cách liên hệ qua thư bưu điện. Vì vậy, đáp án D đúng."
+      }
+    ]
+  },
+
+  /* ---------------------------------------------------- UNIT 12 */
+  {
+    id: "unit12",
+    number: 12,
+    name: "Answering the Phone",
+    nameVi: "Trả lời điện thoại",
+    passageTitle: "Tips for Answering the Phone",
+    passageTitleVi: "Lời khuyên khi trả lời điện thoại",
+    passageBy: "",
+    instruction: "Read part of a company manual. Then, mark the following statements as true (T) or false (F).",
+    paragraphs: [
+      {
+        en: "Good phone etiquette is very important to a business.",
+        vi: "Phép tắc giao tiếp qua điện thoại rất quan trọng đối với một doanh nghiệp."
+      },
+      {
+        en: "Sometimes you may feel stressed. But don’t let the caller know! It is the secretary’s job to be courteous and professional at all times.",
+        vi: "Đôi khi bạn có thể cảm thấy căng thẳng. Nhưng đừng để người gọi biết điều đó! Công việc của thư ký là luôn lịch sự và chuyên nghiệp."
+      },
+      {
+        en: "Please be efficient when answering phone calls. It is our company’s policy to answer all calls before the third ring.",
+        vi: "Hãy trả lời các cuộc gọi điện thoại một cách hiệu quả. Chính sách của công ty chúng ta là trả lời tất cả các cuộc gọi trước hồi chuông thứ ba."
+      },
+      {
+        en: "Before putting callers on hold, tell them they can leave a message. Customers like to have a choice. Many customers dislike being put on hold, so ask first!",
+        vi: "Trước khi yêu cầu người gọi chờ máy, hãy nói với họ rằng họ có thể để lại lời nhắn. Khách hàng thích có sự lựa chọn. Nhiều khách hàng không thích bị yêu cầu chờ máy, vì vậy hãy hỏi họ trước!"
+      },
+      {
+        en: "When transferring a call, always say the name of the person the caller is going to speak to. And don’t forget to announce the caller’s name before you connect them!",
+        vi: "Khi chuyển cuộc gọi, hãy luôn nói tên người mà người gọi sẽ nói chuyện cùng. Và đừng quên thông báo tên người gọi trước khi kết nối họ!"
+      }
+    ],
+    vocabulary: [
+      { word: "etiquette", pos: "noun", ipa: "/ˈetɪket/", meaning: "phép tắc giao tiếp, nghi thức", example: "Good phone etiquette is very important to a business." },
+      { word: "stressed", pos: "adjective", ipa: "/strest/", meaning: "căng thẳng", example: "Sometimes you may feel stressed." },
+      { word: "courteous", pos: "adjective", ipa: "/ˈkɜːtiəs/", meaning: "lịch sự, nhã nhặn", example: "It is the secretary’s job to be courteous and professional at all times." },
+      { word: "efficient", pos: "adjective", ipa: "/ɪˈfɪʃnt/", meaning: "hiệu quả", example: "Please be efficient when answering phone calls." },
+      { word: "policy", pos: "noun", ipa: "/ˈpɒləsi/", meaning: "chính sách, quy định", example: "It is our company’s policy to answer all calls before the third ring." },
+      { word: "put on hold", pos: "phrase", ipa: "/pʊt ɒn həʊld/", meaning: "yêu cầu chờ máy", example: "Before putting callers on hold, tell them they can leave a message." },
+      { word: "leave a message", pos: "phrase", ipa: "/liːv ə ˈmesɪdʒ/", meaning: "để lại lời nhắn", example: "tell them they can leave a message" },
+      { word: "transfer", pos: "verb", ipa: "/trænsˈfɜː/", meaning: "chuyển (cuộc gọi)", example: "When transferring a call, always say the name of the person..." },
+      { word: "announce", pos: "verb", ipa: "/əˈnaʊns/", meaning: "thông báo", example: "don’t forget to announce the caller’s name before you connect them" },
+      { word: "connect", pos: "verb", ipa: "/kəˈnekt/", meaning: "kết nối (cuộc gọi)", example: "before you connect them" }
+    ],
+    questions: [
+      {
+        id: "u12q1", type: "tf",
+        prompt: "The company has a rule requiring employees to transfer calls by the third ring.",
+        promptVi: "Công ty có quy định yêu cầu nhân viên chuyển cuộc gọi trước hồi chuông thứ ba.",
+        answer: false,
+        explanation: "Bài đọc viết: “It is our company’s policy to answer all calls before the third ring.” — Chính sách của công ty là TRẢ LỜI tất cả các cuộc gọi trước hồi chuông thứ ba. Bài đọc nói về việc trả lời điện thoại, không phải chuyển cuộc gọi. Vì vậy, phát biểu này sai."
+      },
+      {
+        id: "u12q2", type: "tf",
+        prompt: "The manual encourages employees to put callers on hold instead of taking messages.",
+        promptVi: "Sổ tay khuyến khích nhân viên yêu cầu người gọi chờ máy thay vì nhận lời nhắn.",
+        answer: false,
+        explanation: "Bài đọc khuyên nhân viên nên cho người gọi biết rằng họ có thể để lại lời nhắn TRƯỚC KHI yêu cầu họ chờ máy. Câu trong đề nói rằng nhân viên nên yêu cầu chờ máy thay vì nhận lời nhắn — điều này trái với nội dung bài đọc. Vì vậy, phát biểu này sai."
+      },
+      {
+        id: "u12q3", type: "tf",
+        prompt: "Employees need to say the caller’s name before connecting him or her.",
+        promptVi: "Nhân viên cần nói tên người gọi trước khi kết nối cuộc gọi cho họ.",
+        answer: true,
+        explanation: "Bài đọc viết: “Don’t forget to announce the caller’s name before you connect them!” — Đừng quên thông báo tên người gọi trước khi kết nối họ! Vì vậy, phát biểu này đúng."
+      }
+    ]
+  }
+];
+
+/* =========================================================
+   2. HELPERS & STATE
+   ========================================================= */
+const STORAGE_KEY = "efs_reading_comprehension_v1";
+
+let state = { units: {}, questions: {}, mistakes: {} };
+let session = null;
+let lastResult = null;
+let currentUnitId = null;
+let dashboardFilter = "all";
+let translationVisible = false;
+let passageVisible = true;
+
+const ALL_REFS = [];
+const QMAP = {};
+UNITS.forEach(function (u) {
+  u.questions.forEach(function (q) {
+    const ref = { unit: u, q: q };
+    ALL_REFS.push(ref);
+    QMAP[q.id] = ref;
+  });
+});
+const TOTAL_QUESTIONS = ALL_REFS.length;
+
+function esc(s) {
+  return String(s === undefined || s === null ? "" : s).replace(/[&<>"']/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+  });
+}
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function normalize(str) {
+  return String(str === undefined || str === null ? "" : str)
+    .toLowerCase()
+    .replace(/[.,!?;:"'’“”()]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {
+    console.warn("Không thể lưu tiến độ:", e);
+  }
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      state = {
+        units: parsed.units || {},
+        questions: parsed.questions || {},
+        mistakes: parsed.mistakes || {}
+      };
+    }
+  } catch (e) {
+    console.warn("Không thể đọc tiến độ:", e);
+    state = { units: {}, questions: {}, mistakes: {} };
+  }
+}
+
+function getUnitRecord(uid) {
+  if (!state.units[uid]) {
+    state.units[uid] = { completed: false, attempts: [], lastAnswers: {}, draft: {} };
+  }
+  return state.units[uid];
+}
+
+function unitStatus(uid) {
+  const rec = state.units[uid];
+  if (!rec) return "not-started";
+  if (rec.completed) return "completed";
+  const hasDraft = rec.draft && Object.keys(rec.draft).length > 0;
+  const hasAttempts = rec.attempts && rec.attempts.length > 0;
+  if (hasDraft || hasAttempts) return "in-progress";
+  return "not-started";
+}
+
+function statusLabel(s) {
+  if (s === "completed") return "Completed";
+  if (s === "in-progress") return "In progress";
+  return "Not started";
+}
+
+function isCorrect(q, val) {
+  if (val === undefined || val === null || val === "") return false;
+  if (q.type === "mcq") return val === q.answer;
+  if (q.type === "tf") return val === q.answer;
+  if (q.type === "fill") {
+    const n = normalize(val);
+    if (!n) return false;
+    return q.answers.some(function (a) { return normalize(a) === n; });
+  }
+  return false;
+}
+
+/* =========================================================
+   3. MODAL
+   ========================================================= */
+const modalOverlay = document.getElementById("modalOverlay");
+const modalTitle = document.getElementById("modalTitle");
+const modalMessage = document.getElementById("modalMessage");
+const modalOk = document.getElementById("modalOk");
+const modalCancel = document.getElementById("modalCancel");
+let modalOkHandler = null;
+
+function closeModal() {
+  modalOverlay.classList.add("hidden");
+  modalOkHandler = null;
+}
+modalCancel.addEventListener("click", closeModal);
+modalOk.addEventListener("click", function () {
+  const h = modalOkHandler;
+  closeModal();
+  if (typeof h === "function") h();
+});
+modalOverlay.addEventListener("click", function (e) {
+  if (e.target === modalOverlay) closeModal();
+});
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modalOverlay.classList.contains("hidden")) closeModal();
+});
+
+function showModal(title, message, okLabel, onOk, showCancel) {
+  modalTitle.textContent = title;
+  modalMessage.textContent = message;
+  modalOk.textContent = okLabel || "OK";
+  modalOkHandler = onOk || null;
+  if (showCancel) modalCancel.classList.remove("hidden");
+  else modalCancel.classList.add("hidden");
+  modalOverlay.classList.remove("hidden");
+}
+
+/* =========================================================
+   4. VIEW ROUTING
+   ========================================================= */
+const VIEWS = ["dashboard", "reading", "practice", "result", "mistakes"];
+
+function showView(name) {
+  VIEWS.forEach(function (v) {
+    const el = document.getElementById("view-" + v);
+    if (el) el.classList.toggle("hidden", v !== name);
+  });
+  document.getElementById("navDashboard").classList.toggle("active", name === "dashboard");
+  document.getElementById("navMistakes").classList.toggle("active", name === "mistakes");
+  window.scrollTo(0, 0);
+}
+
+/* =========================================================
+   5. DASHBOARD
+   ========================================================= */
+function computeStats() {
+  let answered = 0;
+  let mastered = 0;
+  UNITS.forEach(function (u) {
+    u.questions.forEach(function (q) {
+      const st = state.questions[q.id];
+      if (st && st.attempts > 0) {
+        answered++;
+        if (st.correctCount > 0) mastered++;
+      }
+    });
+  });
+  const accuracy = answered > 0 ? Math.round((mastered / answered) * 100) : 0;
+  return {
+    answered: answered,
+    mastered: mastered,
+    accuracy: accuracy,
+    review: Object.keys(state.mistakes).length
+  };
+}
+
+function renderDashboard() {
+  const stats = computeStats();
+  document.getElementById("statUnits").textContent = String(UNITS.length);
+  document.getElementById("statPassages").textContent = String(UNITS.length);
+  document.getElementById("statQuestions").textContent = String(TOTAL_QUESTIONS);
+  document.getElementById("statAnswered").innerHTML = stats.answered + ' <small>/ ' + TOTAL_QUESTIONS + "</small>";
+  document.getElementById("statAccuracy").textContent = stats.accuracy + "%";
+  document.getElementById("statReview").textContent = String(stats.review);
+
+  const pct = TOTAL_QUESTIONS > 0 ? Math.round((stats.answered / TOTAL_QUESTIONS) * 100) : 0;
+  document.getElementById("overallProgress").style.width = pct + "%";
+  document.getElementById("progressText").textContent =
+    stats.answered + " of " + TOTAL_QUESTIONS + " questions completed (" + pct + "%)";
+
+  const badge = document.getElementById("navMistakeCount");
+  badge.textContent = String(stats.review);
+  badge.classList.toggle("zero", stats.review === 0);
+
+  renderUnitsGrid();
+}
+
+function renderUnitsGrid() {
+  const grid = document.getElementById("unitsGrid");
+  let html = "";
+  let shown = 0;
+
+  UNITS.forEach(function (u) {
+    const status = unitStatus(u.id);
+    if (dashboardFilter !== "all" && dashboardFilter !== status) return;
+    shown++;
+
+    const rec = state.units[u.id];
+    let best = null;
+    if (rec && rec.attempts && rec.attempts.length) {
+      best = Math.max.apply(null, rec.attempts.map(function (a) { return a.percent; }));
+    }
+
+    const startLabel = status === "not-started" ? "Start Reading" : (status === "in-progress" ? "Continue" : "Read Again");
+
+    html += '<div class="unit-card">';
+    html += '<div class="unit-card-head">';
+    html += '<span class="unit-badge">Unit ' + u.number + "</span>";
+    html += '<span class="status-pill ' + status + '">' + statusLabel(status) + "</span>";
+    html += "</div>";
+    html += "<h3>" + esc(u.name) + "</h3>";
+    html += '<p class="unit-vi">' + esc(u.nameVi) + "</p>";
+    html += '<p class="unit-passage">' + esc(u.passageTitle) + "</p>";
+    html += '<div class="unit-meta">';
+    html += "<span>" + u.questions.length + " questions</span>";
+    if (best !== null) {
+      html += "<span>•</span><span>Best: " + best + "%</span>";
+    }
+    html += "</div>";
+    html += '<div class="unit-actions">';
+    html += '<button class="btn btn-primary" data-action="open" data-unit="' + u.id + '">' + startLabel + "</button>";
+    if (status === "completed") {
+      html += '<button class="btn btn-outline" data-action="review" data-unit="' + u.id + '">Review</button>';
+    }
+    html += "</div></div>";
+  });
+
+  if (shown === 0) {
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;">' +
+      "<h3>Không có unit nào</h3><p>Không có unit nào ở trạng thái này.</p></div>";
+  } else {
+    grid.innerHTML = html;
+  }
+}
+
+document.getElementById("unitsGrid").addEventListener("click", function (e) {
+  const btn = e.target.closest("button[data-action]");
+  if (!btn) return;
+  const uid = btn.getAttribute("data-unit");
+  const action = btn.getAttribute("data-action");
+  if (action === "open") openUnit(uid);
+  else if (action === "review") showLastReview(uid);
+});
+
+document.getElementById("filterBar").addEventListener("click", function (e) {
+  const btn = e.target.closest(".filter-btn");
+  if (!btn) return;
+  dashboardFilter = btn.getAttribute("data-filter");
+  Array.prototype.forEach.call(document.querySelectorAll(".filter-btn"), function (b) {
+    b.classList.toggle("active", b === btn);
+  });
+  renderUnitsGrid();
+});
+
+document.getElementById("btnContinueLearning").addEventListener("click", function () {
+  let target = null;
+  for (let i = 0; i < UNITS.length; i++) {
+    if (unitStatus(UNITS[i].id) === "in-progress") { target = UNITS[i]; break; }
+  }
+  if (!target) {
+    for (let i = 0; i < UNITS.length; i++) {
+      if (unitStatus(UNITS[i].id) === "not-started") { target = UNITS[i]; break; }
+    }
+  }
+  if (!target) target = UNITS[0];
+  openUnit(target.id);
+});
+
+document.getElementById("btnResetProgress").addEventListener("click", function () {
+  showModal(
+    "Reset Progress?",
+    "Toàn bộ tiến độ học tập, điểm số và danh sách câu cần ôn tập sẽ bị xóa vĩnh viễn. Bạn có chắc chắn muốn tiếp tục?",
+    "Reset Progress",
+    function () {
+      state = { units: {}, questions: {}, mistakes: {} };
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+      saveState();
+      renderDashboard();
+      showView("dashboard");
+      showModal("Đã xóa", "Tiến độ học tập đã được đặt lại về trạng thái ban đầu.", "OK", null, false);
+    },
+    true
+  );
+});
+
+/* =========================================================
+   6. READING VIEW
+   ========================================================= */
+function passageHTML(unit, showVi) {
+  let html = '<div class="passage-head">';
+  html += '<h2 class="passage-title">' + esc(unit.passageTitle) + "</h2>";
+  if (showVi && unit.passageTitleVi) {
+    html += '<p class="passage-by">' + esc(unit.passageTitleVi) + "</p>";
+  }
+  if (unit.passageBy) {
+    html += '<p class="passage-by">' + esc(unit.passageBy) + "</p>";
+  }
+  html += "</div>";
+
+  unit.paragraphs.forEach(function (p) {
+    if (p.list) {
+      if (p.intro) {
+        html += '<p class="para">' + esc(p.intro.en) + "</p>";
+        if (showVi) html += '<p class="para vi">' + esc(p.intro.vi) + "</p>";
+      }
+      html += '<ul class="passage-list">';
+      p.en.forEach(function (li) { html += "<li>" + esc(li) + "</li>"; });
+      html += "</ul>";
+      if (showVi) {
+        html += '<ul class="passage-list vi">';
+        p.vi.forEach(function (li) { html += "<li>" + esc(li) + "</li>"; });
+        html += "</ul>";
+      }
+    } else {
+      html += '<p class="para">' + esc(p.en) + "</p>";
+      if (showVi) html += '<p class="para vi">' + esc(p.vi) + "</p>";
+    }
+  });
+  return html;
+}
+
+function vocabHTML(unit) {
+  let html = "";
+  unit.vocabulary.forEach(function (v, i) {
+    const vid = unit.id + "-v" + i;
+    html += '<div class="vocab-item">';
+    html += '<div class="vocab-main" data-vocab="' + vid + '">';
+    html += '<span class="vocab-word">' + esc(v.word) + "</span>";
+    html += '<span class="vocab-pos">' + esc(v.pos) + "</span>";
+    html += '<span class="vocab-ipa">' + esc(v.ipa) + "</span>";
+    html += '<span class="vocab-toggle">+</span>';
+    html += "</div>";
+    html += '<div class="vocab-detail hidden" id="' + vid + '">';
+    html += "<p><strong>Nghĩa:</strong> " + esc(v.meaning) + "</p>";
+    if (v.example) {
+      html += "<p><strong>Ví dụ trong bài:</strong> <em>" + esc(v.example) + "</em></p>";
+    }
+    html += "</div></div>";
+  });
+  return html;
+}
+
+function openUnit(unitId) {
+  const unit = UNITS.find(function (u) { return u.id === unitId; });
+  if (!unit) return;
+  currentUnitId = unitId;
+
+  document.getElementById("readingPassage").innerHTML = passageHTML(unit, translationVisible);
+  document.getElementById("vocabList").innerHTML = vocabHTML(unit);
+  document.getElementById("btnToggleTranslation").textContent =
+    translationVisible ? "Hide Vietnamese Translation" : "Show Vietnamese Translation";
+
+  showView("reading");
+}
+
+document.getElementById("btnBackFromReading").addEventListener("click", function () {
+  showView("dashboard");
+  renderDashboard();
+});
+
+document.getElementById("btnToggleTranslation").addEventListener("click", function () {
+  translationVisible = !translationVisible;
+  if (currentUnitId) openUnit(currentUnitId);
+});
+
+document.getElementById("btnStartExercise").addEventListener("click", function () {
+  if (currentUnitId) startUnitPractice(currentUnitId);
+});
+
+document.getElementById("vocabList").addEventListener("click", function (e) {
+  const head = e.target.closest(".vocab-main");
+  if (!head) return;
+  const vid = head.getAttribute("data-vocab");
+  const detail = document.getElementById(vid);
+  if (!detail) return;
+  detail.classList.toggle("hidden");
+  const toggle = head.querySelector(".vocab-toggle");
+  if (toggle) toggle.textContent = detail.classList.contains("hidden") ? "+" : "−";
+});
+
+/* =========================================================
+   7. PRACTICE SESSION
+   ========================================================= */
+function buildItems(refs, shuffleQuestions, shuffleOptions) {
+  let list = refs.slice();
+  if (shuffleQuestions) list = shuffle(list);
+  return list.map(function (ref) {
+    const q = ref.q;
+    return {
+      unit: ref.unit,
+      q: q,
+      optionOrder: q.options ? (shuffleOptions ? shuffle(q.options.map(function (_, i) { return i; })) : q.options.map(function (_, i) { return i; })) : null
+    };
+  });
+}
+
+function startSession(opts) {
+  session = {
+    unitId: opts.unitId || null,
+    type: opts.type,
+    items: opts.items,
+    answers: opts.answers || {},
+    index: opts.index || 0,
+    submitted: false
+  };
+  lastResult = null;
+  passageVisible = true;
+  document.getElementById("btnTogglePassage").textContent = "Hide";
+
+  document.getElementById("practiceUnitLabel").textContent = opts.label || "";
+  document.getElementById("practicePassageBody").innerHTML = passageHTML(session.items[0].unit, false);
+  const bank = session.items[0].unit.wordBank;
+  if (bank && opts.showWordBank) {
+    document.getElementById("practicePassageBody").innerHTML +=
+      '<div class="word-bank"><span>Word Bank</span><p>' + esc(bank.join("  |  ")) + "</p></div>";
+  }
+
+  showView("practice");
+  renderPractice();
+}
+
+function startUnitPractice(unitId) {
+  const unit = UNITS.find(function (u) { return u.id === unitId; });
+  if (!unit) return;
+  const rec = getUnitRecord(unitId);
+  const isFirstAttempt = !rec.attempts || rec.attempts.length === 0;
+
+  const refs = unit.questions.map(function (q) { return { unit: unit, q: q }; });
+  const items = buildItems(refs, !isFirstAttempt, !isFirstAttempt);
+
+  let draft = {};
+  let draftIndex = 0;
+  if (!isFirstAttempt && rec.draft && Object.keys(rec.draft).length > 0) {
+    draft = rec.draft;
+    draftIndex = rec.draftIndex || 0;
+  }
+
+  if (draftIndex >= items.length) draftIndex = 0;
+
+  startSession({
+    unitId: unitId,
+    type: "unit",
+    items: items,
+    answers: draft,
+    index: draftIndex,
+    label: "Unit " + unit.number + " — " + unit.name,
+    showWordBank: true
+  });
+}
+
+function currentItem() {
+  return session.items[session.index];
+}
+
+function renderPractice() {
+  const item = currentItem();
+  const total = session.items.length;
+
+  document.getElementById("practiceQCounter").textContent =
+    "Question " + (session.index + 1) + " of " + total;
+  document.getElementById("practiceProgress").style.width =
+    Math.round(((session.index + 1) / total) * 100) + "%";
+
+  // Passage changes only if different unit (mistakes retry may span units)
+  const pBody = document.getElementById("practicePassageBody");
+  const currentUnit = item.unit;
+  if (pBody.getAttribute("data-unit") !== currentUnit.id) {
+    let html = passageHTML(currentUnit, false);
+    if (currentUnit.wordBank) {
+      html += '<div class="word-bank"><span>Word Bank</span><p>' +
+        esc(currentUnit.wordBank.join("  |  ")) + "</p></div>";
+    }
+    pBody.innerHTML = html;
+    pBody.setAttribute("data-unit", currentUnit.id);
+  }
+
+  renderQuestionArea();
+  renderDots();
+
+  document.getElementById("btnPrev").disabled = session.index === 0;
+  document.getElementById("btnNext").disabled = session.index === total - 1;
+}
+
+function renderQuestionArea() {
+  const item = currentItem();
+  const q = item.q;
+  const val = session.answers[q.id];
+  const area = document.getElementById("questionArea");
+  let html = "";
+
+  let typeLabel = "Multiple Choice";
+  if (q.type === "tf") typeLabel = "True / False";
+  if (q.type === "fill") typeLabel = "Fill in the Blank";
+
+  html += '<div class="q-type-badge">' + typeLabel + "</div>";
+
+  if (q.type === "fill") {
+    const parts = q.prompt.split(BLANK);
+    html += '<p class="q-prompt fill-prompt">' + esc(parts[0]) +
+      '<input class="fill-input" id="fillInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type here" value="' +
+      esc(val || "") + '">' + esc(parts[1] || "") + "</p>";
+    if (q.promptVi) {
+      html += '<p class="q-prompt-vi">' + esc(q.promptVi) + "</p>";
+    }
+  } else {
+    html += '<p class="q-prompt">' + esc(q.prompt) + "</p>";
+    if (q.promptVi) {
+      html += '<p class="q-prompt-vi">' + esc(q.promptVi) + "</p>";
+    }
+
+    if (q.type === "mcq") {
+      item.optionOrder.forEach(function (origIdx, pos) {
+        const opt = q.options[origIdx];
+        const selected = val === origIdx;
+        html += '<button type="button" class="option' + (selected ? " selected" : "") +
+          '" data-value="' + origIdx + '">';
+        html += '<span class="option-key">' + String.fromCharCode(65 + pos) + "</span>";
+        html += '<span class="option-text">' + esc(opt.text) + "</span>";
+        html += "</button>";
+      });
+    } else if (q.type === "tf") {
+      html += '<div class="tf-row">';
+      html += '<button type="button" class="option' + (val === true ? " selected" : "") +
+        '" data-value="true"><span class="option-key">T</span><span class="option-text">True</span></button>';
+      html += '<button type="button" class="option' + (val === false ? " selected" : "") +
+        '" data-value="false"><span class="option-key">F</span><span class="option-text">False</span></button>';
+      html += "</div>";
+    }
+  }
+
+  area.innerHTML = html;
+
+  if (q.type === "fill") {
+    const input = document.getElementById("fillInput");
+    if (input) {
+      input.addEventListener("input", function () {
+        session.answers[q.id] = input.value;
+        persistDraft();
+        renderDots();
+      });
+    }
+  }
+}
+
+function renderDots() {
+  const dots = document.getElementById("qDots");
+  let html = "";
+  session.items.forEach(function (item, i) {
+    const v = session.answers[item.q.id];
+    const answered = v !== undefined && v !== null && v !== "";
+    let cls = "qdot";
+    if (i === session.index) cls += " current";
+    if (answered) cls += " answered";
+    html += '<button type="button" class="' + cls + '" data-idx="' + i + '">' + (i + 1) + "</button>";
+  });
+  dots.innerHTML = html;
+}
+
+function persistDraft() {
+  if (!session || session.type !== "unit" || !session.unitId) return;
+  const rec = getUnitRecord(session.unitId);
+  rec.draft = Object.assign({}, session.answers);
+  rec.draftIndex = session.index;
+  saveState();
+}
+
+document.getElementById("questionArea").addEventListener("click", function (e) {
+  const btn = e.target.closest(".option");
+  if (!btn || !session) return;
+  const q = currentItem().q;
+  const raw = btn.getAttribute("data-value");
+  let value;
+  if (q.type === "mcq") value = parseInt(raw, 10);
+  else if (q.type === "tf") value = (raw === "true");
+  else return;
+
+  session.answers[q.id] = value;
+  persistDraft();
+  renderQuestionArea();
+  renderDots();
+});
+
+document.getElementById("qDots").addEventListener("click", function (e) {
+  const btn = e.target.closest(".qdot");
+  if (!btn || !session) return;
+  const idx = parseInt(btn.getAttribute("data-idx"), 10);
+  if (isNaN(idx)) return;
+  session.index = idx;
+  persistDraft();
+  renderPractice();
+});
+
+document.getElementById("btnPrev").addEventListener("click", function () {
+  if (!session || session.index === 0) return;
+  session.index--;
+  persistDraft();
+  renderPractice();
+});
+
+document.getElementById("btnNext").addEventListener("click", function () {
+  if (!session || session.index >= session.items.length - 1) return;
+  session.index++;
+  persistDraft();
+  renderPractice();
+});
+
+document.getElementById("btnTogglePassage").addEventListener("click", function () {
+  passageVisible = !passageVisible;
+  document.getElementById("practicePassageBody").style.display = passageVisible ? "" : "none";
+  this.textContent = passageVisible ? "Hide" : "Show";
+});
+
+document.getElementById("btnExitPractice").addEventListener("click", function () {
+  if (!session) { showView("dashboard"); return; }
+  const answeredCount = session.items.filter(function (it) {
+    const v = session.answers[it.q.id];
+    return v !== undefined && v !== null && v !== "";
+  }).length;
+
+  if (answeredCount === 0) {
+    exitPractice();
+    return;
+  }
+
+  showModal(
+    "Thoát bài luyện tập?",
+    "Tiến độ làm bài hiện tại đã được lưu lại. Bạn có thể quay lại và tiếp tục sau.",
+    "Thoát",
+    exitPractice,
+    true
+  );
+});
+
+function exitPractice() {
+  persistDraft();
+  if (session && session.type === "mistakes") {
+    session = null;
+    renderMistakesView();
+    showView("mistakes");
+  } else {
+    session = null;
+    renderDashboard();
+    showView("dashboard");
+  }
+}
+
+/* =========================================================
+   8. SUBMIT & GRADING
+   ========================================================= */
+document.getElementById("btnSubmit").addEventListener("click", function () {
+  if (!session || session.submitted) return;
+  const unanswered = session.items.filter(function (it) {
+    const v = session.answers[it.q.id];
+    return v === undefined || v === null || v === "";
+  });
+
+  if (unanswered.length > 0) {
+    showModal(
+      "Chưa trả lời hết",
+      "Bạn còn " + unanswered.length + " câu chưa trả lời. Bạn vẫn muốn nộp bài chứ?",
+      "Nộp bài",
+      doSubmit,
+      true
+    );
+  } else {
+    doSubmit();
+  }
+});
+
+function doSubmit() {
+  const results = session.items.map(function (item) {
+    const q = item.q;
+    const val = session.answers[q.id];
+    const correct = isCorrect(q, val);
+    return {
+      unit: item.unit,
+      q: q,
+      val: val === undefined ? null : val,
+      correct: correct,
+      optionOrder: item.optionOrder
+    };
+  });
+
+  session.submitted = true;
+
+  const correctCount = results.filter(function (r) { return r.correct; }).length;
+  const total = results.length;
+  const percent = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+
+  // ---- update per-question stats ----
+  results.forEach(function (r) {
+    const st = state.questions[r.q.id] || { attempts: 0, correctCount: 0, lastCorrect: false };
+    st.attempts += 1;
+    if (r.correct) st.correctCount += 1;
+    st.lastCorrect = r.correct;
+    state.questions[r.q.id] = st;
+
+    if (r.correct) {
+      // Đã trả lời đúng -> hoàn thành việc ôn tập câu này
+      if (state.mistakes[r.q.id]) delete state.mistakes[r.q.id];
+    } else {
+      state.mistakes[r.q.id] = {
+        unitId: r.unit.id,
+        chosen: r.val,
+        reviewed: false,
+        date: new Date().toISOString()
+      };
+    }
+  });
+
+  // ---- update unit record ----
+  if (session.type === "unit" && session.unitId) {
+    const rec = getUnitRecord(session.unitId);
+    const answersMap = {};
+    session.items.forEach(function (item) {
+      const v = session.answers[item.q.id];
+      if (v !== undefined && v !== null) answersMap[item.q.id] = v;
+    });
+    rec.lastAnswers = answersMap;
+    rec.attempts.push({
+      date: new Date().toISOString(),
+      correct: correctCount,
+      total: total,
+      percent: percent
+    });
+    rec.completed = true;
+    rec.draft = {};
+    rec.draftIndex = 0;
+  }
+
+  saveState();
+
+  lastResult = {
+    unitId: session.unitId,
+    type: session.type,
+    results: results,
+    correctCount: correctCount,
+    total: total,
+    percent: percent
+  };
+
+  session = null;
+
+  renderResultView();
+  showView("result");
+  renderDashboard();
+}
+
+/* =========================================================
+   9. RESULT / REVIEW VIEW
+   ========================================================= */
+function renderResultView() {
+  const r = lastResult;
+  if (!r) return;
+
+  const summary = document.getElementById("resultSummary");
+  const actions = document.getElementById("resultActions");
+  const list = document.getElementById("resultList");
+
+  const wrongCount = r.total - r.correctCount;
+  const titleUnit = r.results.length > 0
+    ? (r.type === "unit"
+        ? "Unit " + r.results[0].unit.number + " — " + r.results[0].unit.name
+        : "Mistakes Review")
+    : "";
+
+  summary.innerHTML =
+    '<div class="score-ring" style="--pct:' + r.percent + '%"><span>' + r.percent + "%</span></div>" +
+    "<h2>" + esc(titleUnit) + "</h2>" +
+    "<p>Bạn đã hoàn thành bài luyện tập đọc hiểu.</p>" +
+    '<div class="result-chips">' +
+    '<span class="chip green">' + r.correctCount + " correct</span>" +
+    '<span class="chip red">' + wrongCount + " incorrect</span>" +
+    '<span class="chip">' + r.correctCount + " / " + r.total + " points</span>" +
+    "</div>";
+
+  const wrongQids = r.results.filter(function (x) { return !x.correct; })
+    .map(function (x) { return x.q.id; });
+
+  let actHtml = "";
+  if (wrongQids.length > 0) {
+    actHtml += '<button class="btn btn-primary" id="btnRetryIncorrect">Retry Incorrect Questions</button>';
+  }
+  actHtml += '<button class="btn btn-outline" id="btnRetryAll">Retry All Questions</button>';
+  actHtml += '<button class="btn btn-outline" id="btnGoMistakes">Review Mistakes</button>';
+  actHtml += '<button class="btn btn-ghost" id="btnBackDash">Back to Dashboard</button>';
+  actions.innerHTML = actHtml;
+
+  if (document.getElementById("btnRetryIncorrect")) {
+    document.getElementById("btnRetryIncorrect").addEventListener("click", function () {
+      retryQuestions(r, wrongQids);
+    });
+  }
+  document.getElementById("btnRetryAll").addEventListener("click", function () {
+    retryQuestions(r, null);
+  });
+  document.getElementById("btnGoMistakes").addEventListener("click", function () {
+    renderMistakesView();
+    showView("mistakes");
+  });
+  document.getElementById("btnBackDash").addEventListener("click", function () {
+    renderDashboard();
+    showView("dashboard");
+  });
+
+  // ---- detailed feedback ----
+  let html = "";
+  r.results.forEach(function (res, i) {
+    html += feedbackHTML(res, i);
+  });
+  list.innerHTML = html;
+}
+
+function feedbackHTML(res, index) {
+  const q = res.q;
+  const val = res.val;
+  const correct = res.correct;
+  let html = '<div class="fb-card ' + (correct ? "correct" : "incorrect") + '">';
+
+  html += '<div class="fb-head">';
+  html += '<span class="fb-num">' + (index + 1) + "</span>";
+  html += '<span class="fb-unit">Unit ' + res.unit.number + " — " + esc(res.unit.name) + "</span>";
+  html += '<span class="fb-status ' + (correct ? "ok" : "no") + '">' + (correct ? "Correct" : "Incorrect") + "</span>";
+  html += "</div>";
+
+  if (q.type === "fill") {
+    html += '<p class="fb-prompt">' + esc(q.prompt) + "</p>";
+    if (q.promptVi) html += '<p class="fb-prompt-vi">' + esc(q.promptVi) + "</p>";
+    html += '<p class="fb-answer-line"><strong>Câu trả lời của bạn:</strong> <span class="' +
+      (correct ? "ok" : "no") + '">' + (val ? esc(val) : "(bỏ trống)") + "</span></p>";
+    html += '<p class="fb-answer-line"><strong>Đáp án đúng:</strong> <span class="ok">' +
+      esc(q.answers[0]) + "</span></p>";
+  } else if (q.type === "tf") {
+    html += '<p class="fb-prompt">' + esc(q.prompt) + "</p>";
+    if (q.promptVi) html += '<p class="fb-prompt-vi">' + esc(q.promptVi) + "</p>";
+    const correctText = q.answer ? "True" : "False";
+    const chosenText = val === null ? "(bỏ trống)" : (val ? "True" : "False");
+    html += '<p class="fb-answer-line"><strong>Câu trả lời của bạn:</strong> <span class="' +
+      (correct ? "ok" : "no") + '">' + esc(chosenText) + "</span></p>";
+    html += '<p class="fb-answer-line"><strong>Đáp án đúng:</strong> <span class="ok">' +
+      esc(correctText) + "</span></p>";
+  } else {
+    html += '<p class="fb-prompt">' + esc(q.prompt) + "</p>";
+    if (q.promptVi) html += '<p class="fb-prompt-vi">' + esc(q.promptVi) + "</p>";
+
+    const order = res.optionOrder || q.options.map(function (_, i) { return i; });
+    order.forEach(function (origIdx, pos) {
+      const opt = q.options[origIdx];
+      const isAnswer = origIdx === q.answer;
+      const isChosen = val === origIdx;
+      let cls = "fb-opt";
+      if (isAnswer) cls += " correct-opt";
+      else if (isChosen) cls += " wrong-opt";
+      html += '<div class="' + cls + '">';
+      html += '<span class="option-key">' + String.fromCharCode(65 + pos) + "</span>";
+      html += '<span class="option-text">' + esc(opt.text);
+      if (opt.textVi) html += '<span class="option-vi">' + esc(opt.textVi) + "</span>";
+      html += "</span></div>";
+    });
+  }
+
+  html += '<div class="fb-explain"><strong>Giải thích:</strong> ' + esc(q.explanation) + "</div>";
+  html += "</div>";
+  return html;
+}
+
+function retryQuestions(result, onlyQids) {
+  const refs = [];
+  result.results.forEach(function (res) {
+    if (onlyQids && onlyQids.indexOf(res.q.id) === -1) return;
+    refs.push({ unit: res.unit, q: res.q });
+  });
+  if (refs.length === 0) return;
+
+  const items = buildItems(refs, true, true);
+  startSession({
+    unitId: result.unitId,
+    type: "retry",
+    items: items,
+    answers: {},
+    index: 0,
+    label: "Retry — " + (result.type === "unit" ? "Unit " + refs[0].unit.number : "Practice"),
+    showWordBank: true
+  });
+}
+
+function showLastReview(unitId) {
+  const unit = UNITS.find(function (u) { return u.id === unitId; });
+  const rec = state.units[unitId];
+  if (!unit || !rec || !rec.attempts || rec.attempts.length === 0) {
+    openUnit(unitId);
+    return;
+  }
+
+  const results = unit.questions.map(function (q) {
+    const val = rec.lastAnswers ? rec.lastAnswers[q.id] : null;
+    const hasVal = val !== undefined && val !== null;
+    return {
+      unit: unit,
+      q: q,
+      val: hasVal ? val : null,
+      correct: hasVal ? isCorrect(q, val) : false,
+      optionOrder: q.options ? q.options.map(function (_, i) { return i; }) : null
+    };
+  });
+
+  const correctCount = results.filter(function (r) { return r.correct; }).length;
+  const total = results.length;
+
+  lastResult = {
+    unitId: unitId,
+    type: "unit",
+    results: results,
+    correctCount: correctCount,
+    total: total,
+    percent: total > 0 ? Math.round((correctCount / total) * 100) : 0
+  };
+
+  renderResultView();
+  showView("result");
+}
+
+/* =========================================================
+   10. MISTAKES VIEW
+   ========================================================= */
+function renderMistakesView() {
+  const container = document.getElementById("mistakesList");
+  const ids = Object.keys(state.mistakes);
+
+  const badge = document.getElementById("navMistakeCount");
+  badge.textContent = String(ids.length);
+  badge.classList.toggle("zero", ids.length === 0);
+
+  if (ids.length === 0) {
+    container.innerHTML =
+      '<div class="empty-state">' +
+      '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg>' +
+      "<h3>Chưa có câu nào cần ôn tập</h3>" +
+      "<p>Hãy làm bài luyện tập. Những câu trả lời sai sẽ xuất hiện ở đây.</p>" +
+      "</div>";
+    document.getElementById("btnRetryMistakes").disabled = true;
+    return;
+  }
+  document.getElementById("btnRetryMistakes").disabled = false;
+
+  // sắp xếp theo thứ tự unit rồi theo câu
+  const sorted = ids.slice().sort(function (a, b) {
+    const ra = QMAP[a], rb = QMAP[b];
+    if (!ra || !rb) return 0;
+    if (ra.unit.number !== rb.unit.number) return ra.unit.number - rb.unit.number;
+    return ra.unit.questions.indexOf(ra.q) - rb.unit.questions.indexOf(rb.q);
+  });
+
+  let html = "";
+  sorted.forEach(function (qid) {
+    const ref = QMAP[qid];
+    const m = state.mistakes[qid];
+    if (!ref) return;
+    const q = ref.q;
+    const unit = ref.unit;
+
+    html += '<div class="fb-card incorrect">';
+    html += '<div class="fb-head">';
+    html += '<span class="fb-num">!</span>';
+    html += '<span class="fb-unit">Unit ' + unit.number + " — " + esc(unit.name) + "</span>";
+    if (m.reviewed) html += '<span class="reviewed-tag">Reviewed</span>';
+    html += '<button class="btn btn-outline btn-mini mark-btn" data-mark="' + qid + '">' +
+      (m.reviewed ? "Unmark" : "Mark as reviewed") + "</button>";
+    html += "</div>";
+
+    if (q.type === "fill") {
+      html += '<p class="fb-prompt">' + esc(q.prompt) + "</p>";
+      if (q.promptVi) html += '<p class="fb-prompt-vi">' + esc(q.promptVi) + "</p>";
+      html += '<p class="fb-answer-line"><strong>Câu trả lời của bạn:</strong> <span class="no">' +
+        (m.chosen ? esc(m.chosen) : "(bỏ trống)") + "</span></p>";
+      html += '<p class="fb-answer-line"><strong>Đáp án đúng:</strong> <span class="ok">' +
+        esc(q.answers[0]) + "</span></p>";
+    } else if (q.type === "tf") {
+      html += '<p class="fb-prompt">' + esc(q.prompt) + "</p>";
+      if (q.promptVi) html += '<p class="fb-prompt-vi">' + esc(q.promptVi) + "</p>";
+      html += '<p class="fb-answer-line"><strong>Câu trả lời của bạn:</strong> <span class="no">' +
+        (m.chosen === null || m.chosen === undefined ? "(bỏ trống)" : (m.chosen ? "True" : "False")) + "</span></p>";
+      html += '<p class="fb-answer-line"><strong>Đáp án đúng:</strong> <span class="ok">' +
+        (q.answer ? "True" : "False") + "</span></p>";
+    } else {
+      html += '<p class="fb-prompt">' + esc(q.prompt) + "</p>";
+      if (q.promptVi) html += '<p class="fb-prompt-vi">' + esc(q.promptVi) + "</p>";
+      q.options.forEach(function (opt, idx) {
+        let cls = "fb-opt";
+        if (idx === q.answer) cls += " correct-opt";
+        else if (m.chosen === idx) cls += " wrong-opt";
+        html += '<div class="' + cls + '">';
+        html += '<span class="option-key">' + String.fromCharCode(65 + idx) + "</span>";
+        html += '<span class="option-text">' + esc(opt.text);
+        if (opt.textVi) html += '<span class="option-vi">' + esc(opt.textVi) + "</span>";
+        html += "</span></div>";
+      });
+    }
+
+    html += '<div class="fb-explain"><strong>Giải thích:</strong> ' + esc(q.explanation) + "</div>";
+    html += "</div>";
+  });
+
+  container.innerHTML = html;
+}
+
+document.getElementById("mistakesList").addEventListener("click", function (e) {
+  const btn = e.target.closest("button[data-mark]");
+  if (!btn) return;
+  const qid = btn.getAttribute("data-mark");
+  const m = state.mistakes[qid];
+  if (!m) return;
+  m.reviewed = !m.reviewed;
+  saveState();
+  renderMistakesView();
+});
+
+document.getElementById("btnRetryMistakes").addEventListener("click", function () {
+  const ids = Object.keys(state.mistakes);
+  if (ids.length === 0) return;
+  const refs = ids.map(function (id) { return QMAP[id]; }).filter(Boolean);
+  if (refs.length === 0) return;
+
+  const items = buildItems(refs, true, true);
+  startSession({
+    unitId: null,
+    type: "mistakes",
+    items: items,
+    answers: {},
+    index: 0,
+    label: "Mistakes Review",
+    showWordBank: true
+  });
+});
+
+document.getElementById("btnClearReviewed").addEventListener("click", function () {
+  const reviewed = Object.keys(state.mistakes).filter(function (id) {
+    return state.mistakes[id].reviewed;
+  });
+  if (reviewed.length === 0) {
+    showModal(
+      "Không có câu nào đã ôn",
+      "Bạn chưa đánh dấu câu nào là đã ôn tập. Hãy đọc lại và nhấn “Mark as reviewed” trên những câu bạn đã ôn xong.",
+      "Đã hiểu",
+      null,
+      false
+    );
+    return;
+  }
+  showModal(
+    "Xóa các câu đã ôn?",
+    "Sẽ xóa " + reviewed.length + " câu đã được đánh dấu ôn tập khỏi danh sách. Các câu chưa ôn sẽ được giữ lại.",
+    "Xóa",
+    function () {
+      reviewed.forEach(function (id) { delete state.mistakes[id]; });
+      saveState();
+      renderMistakesView();
+      renderDashboard();
+    },
+    true
+  );
+});
+
+document.getElementById("btnBackFromMistakes").addEventListener("click", function () {
+  renderDashboard();
+  showView("dashboard");
+});
+
+/* =========================================================
+   11. NAVIGATION
+   ========================================================= */
+document.getElementById("navDashboard").addEventListener("click", function () {
+  renderDashboard();
+  showView("dashboard");
+});
+
+document.getElementById("navMistakes").addEventListener("click", function () {
+  renderMistakesView();
+  showView("mistakes");
+});
+
+document.getElementById("btnReviewMistakesTop").addEventListener("click", function () {
+  renderMistakesView();
+  showView("mistakes");
+});
+
+/* =========================================================
+   12. INIT
+   ========================================================= */
+(function init() {
+  loadState();
+  renderDashboard();
+  renderMistakesView();
+  showView("dashboard");
+})();
+</script>
+</body>
+</html>
